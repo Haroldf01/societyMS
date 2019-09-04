@@ -2,9 +2,15 @@
   <dictionary name="Arsalaan">
     <words>
       <w>anytown</w>
+      <w>arsalaan</w>
+      <w>clsx</w>
+      <w>dokadia</w>
+      <w>fname</w>
       <w>landline</w>
+      <w>lname</w>
       <w>reactville</w>
       <w>singup</w>
+      <w>subheader</w>
     </words>
   </dictionary>
 </component>
