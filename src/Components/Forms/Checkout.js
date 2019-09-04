@@ -102,7 +102,7 @@ export default function Checkout() {
       <AppBar position="absolute" color="default" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            Company name
+            Logo of SMS
           </Typography>
         </Toolbar>
       </AppBar>

@@ -6,17 +6,15 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
 export default function PaymentForm() {
-  const theme = createMuiTheme({
-      
-  });
+  // const theme = createMuiTheme();
+
+  // theme.typography.subtitle1 = {
+  // };
+
+    // ToDo: If possible apply custom theme and split range of typography
+  
   return (
     <React.Fragment>
-      <ThemeProvider theme={theme}>
-        <Typography variant="subtitle1" gutterBottom>
-          Accounting
-        </Typography>
-      </ThemeProvider>
-
       <Typography variant="h6" gutterBottom>
         Accounting Details
       </Typography>
@@ -53,12 +51,9 @@ export default function PaymentForm() {
           />
         </Grid>
       </Grid>
+
       <Typography variant="subtitle1" gutterBottom align={'left'}>
         Self Owned Parking
-      </Typography>
-
-      <Typography variant="subtitle1" gutterBottom align={'right'}>
-        Society Owned Parking
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={6} sm={3}>
@@ -77,6 +72,12 @@ export default function PaymentForm() {
             fullWidth
           />
         </Grid>
+      </Grid>
+      <div>&nbsp;</div>
+        <Typography variant="subtitle1" gutterBottom align={'left'}>
+          Society Owned Parking
+        </Typography>
+      <Grid container spacing={3}>
         <Grid item xs={6} sm={3}>
           <TextField
             required
@@ -94,6 +95,7 @@ export default function PaymentForm() {
           />
         </Grid>
       </Grid>
+
 
       {/* ALTERNATIVE IF ABOVE NOT WORKING */}
 
