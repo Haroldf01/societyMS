@@ -5,6 +5,7 @@ import SignIn from './Components/SignIn'
 import SingUp from './Components/SignUp'
 import Checkout from './Components/Forms/Checkout';
 import Dashboard from './Components/Dashboard/Dashboard'
+import SimpleSelect from './Components/Forms/SimpleSelect'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
                   <Route path='/signup' component={SingUp} />
                   <Route path='/society' component={Checkout} />
                   <Route path={'/dashboard'} component={Dashboard}/>
+                  <Route path={'/select'} component={SimpleSelect}/>
               </Switch>
           </div>
       </Router>

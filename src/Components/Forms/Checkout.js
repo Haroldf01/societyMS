@@ -67,7 +67,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const steps = ['Basic Info', 'Accounting Info', 'Add-on Bills', 'Wing Structure'];
+const steps = ['Basic Info', 'Accounting Info', 'Billing Info', 'Wing Structure'];
 
 function getStepContent(step) {
     switch (step) {
