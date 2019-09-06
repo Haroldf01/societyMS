@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
@@ -13,11 +12,10 @@ const useStyles = makeStyles(theme => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    minWidth: '100%',
+    marginTop:'0px'
   },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
+ 
 }));
 
 export default function SimpleSelect() {
@@ -27,11 +25,11 @@ export default function SimpleSelect() {
     name: 'hai',
   });
 
-  const inputLabel = React.useRef(null);
-  const [labelWidth, setLabelWidth] = React.useState(0);
-  React.useEffect(() => {
-    setLabelWidth(inputLabel.current.offsetWidth);
-  }, []);
+  // const inputLabel = React.useRef(null);
+  // const [labelWidth, setLabelWidth] = React.useState(0);
+  // React.useEffect(() => {
+  //   setLabelWidth(inputLabel.current.offsetWidth);
+  // }, []);
 
   function handleChange(event) {
     setValues(oldValues => ({
@@ -42,195 +40,20 @@ export default function SimpleSelect() {
 
   return (
     <form className={classes.root} autoComplete="off">
-      <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="age-simple">Age</InputLabel>
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          inputProps={{
-            name: 'age',
-            id: 'age-simple',
-          }}
-        >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="age-helper">Age</InputLabel>
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          inputProps={{
-            name: 'age',
-            id: 'age-helper',
-          }}
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-        <FormHelperText>Some important helper text</FormHelperText>
-      </FormControl>
-      <FormControl className={classes.formControl}>
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          displayEmpty
-          name="age"
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-        <FormHelperText>Without label</FormHelperText>
-      </FormControl>
-      <FormControl className={classes.formControl}>
-        <InputLabel shrink htmlFor="age-label-placeholder">
-          Age
-        </InputLabel>
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          inputProps={{
-            name: 'age',
-            id: 'age-label-placeholder',
-          }}
-          displayEmpty
-          name="age"
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-        <FormHelperText>Label + placeholder</FormHelperText>
-      </FormControl>
-      <FormControl className={classes.formControl} disabled>
-        <InputLabel htmlFor="name-disabled">Name</InputLabel>
-        <Select
-          value={values.name}
-          onChange={handleChange}
-          inputProps={{
-            name: 'name',
-            id: 'name-disabled',
-          }}
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value="hai">Hai</MenuItem>
-          <MenuItem value="olivier">Olivier</MenuItem>
-          <MenuItem value="kevin">Kevin</MenuItem>
-        </Select>
-        <FormHelperText>Disabled</FormHelperText>
-      </FormControl>
-      <FormControl className={classes.formControl} error>
-        <InputLabel htmlFor="name-error">Name</InputLabel>
-        <Select
-          value={values.name}
-          onChange={handleChange}
-          name="name"
-          renderValue={value => `⚠️  - ${value}`}
-          inputProps={{
-            id: 'name-error',
-          }}
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value="hai">Hai</MenuItem>
-          <MenuItem value="olivier">Olivier</MenuItem>
-          <MenuItem value="kevin">Kevin</MenuItem>
-        </Select>
-        <FormHelperText>Error</FormHelperText>
-      </FormControl>
-      <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="name-readonly">Name</InputLabel>
-        <Select
-          value={values.name}
-          onChange={handleChange}
-          inputProps={{
-            name: 'name',
-            id: 'name-readonly',
-            readOnly: true,
-          }}
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value="hai">Hai</MenuItem>
-          <MenuItem value="olivier">Olivier</MenuItem>
-          <MenuItem value="kevin">Kevin</MenuItem>
-        </Select>
-        <FormHelperText>Read only</FormHelperText>
-      </FormControl>
-      <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="age-auto-width">Age</InputLabel>
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          inputProps={{
-            name: 'age',
-            id: 'age-auto-width',
-          }}
-          autoWidth
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-        <FormHelperText>Auto width</FormHelperText>
-      </FormControl>
-      <FormControl className={classes.formControl}>
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          name="age"
-          displayEmpty
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="" disabled>
-            Placeholder
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-        <FormHelperText>Placeholder</FormHelperText>
-      </FormControl>
       
-      
-      <FormControl variant="filled" className={classes.formControl}>
-        <InputLabel htmlFor="filled-age-simple">Age</InputLabel>
+      <FormControl className={classes.formControl}>
+        <InputLabel htmlFor="penaltyType">Penalty Type</InputLabel>
         <Select
           value={values.age}
           onChange={handleChange}
           inputProps={{
-            name: 'age',
-            id: 'filled-age-simple',
+            name: 'penaltyType',
+            id: 'penaltyType',
           }}
+          className={classes.penaltyType}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={'Fixed'}>Fixed</MenuItem>
+          <MenuItem value={'Penalty'}>Penalty</MenuItem>
         </Select>
       </FormControl>
     </form>

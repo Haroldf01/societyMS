@@ -19,11 +19,13 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
-import { mainListItems, secondaryListItems } from './listItems';
+import SocietyForm from '../Forms/Checkout'
 
-import Chart from './Chart';
-import Deposits from './Deposits';
-import Orders from './Orders';
+import { mainListItems, secondaryListItems, thirdListItems, fourthItemList } from './listItems';
+
+// import Chart from './Chart';
+// import Deposits from './Deposits';
+// import Orders from './Orders';
 
 import Avatar from '../Avatar'
 
@@ -31,8 +33,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="http://arsalaan.net/">
+        Arsalaan
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -147,7 +149,7 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
+            {/* Dashboard */}
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -173,28 +175,33 @@ export default function Dashboard() {
         <List>{mainListItems}</List>
         <Divider />
         <List>{secondaryListItems}</List>
+        <Divider />
+        <List>{thirdListItems}</List>
+        <Divider />
+        <List>{fourthItemList}</List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
+          <SocietyForm />
           <Grid container spacing={3}>
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
+              {/* <Paper className={fixedHeightPaper}>
                 <Chart />
-              </Paper>
+              </Paper> */}
             </Grid>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
+              {/* <Paper className={fixedHeightPaper}>
                 <Deposits />
-              </Paper>
+              </Paper> */}
             </Grid>
             {/* Recent Orders */}
             <Grid item xs={12}>
-              <Paper className={classes.paper}>
+              {/* <Paper className={classes.paper}>
                 <Orders />
-              </Paper>
+              </Paper> */}
             </Grid>
           </Grid>
         </Container>

@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import Box from '@material-ui/core/Box';
+import SimpleSelect from './SimpleSelect';
+
 
 const useStyle = makeStyles({
   parkingTypo: {
@@ -13,7 +14,7 @@ const useStyle = makeStyles({
 });
 
 export default function PaymentForm() {
-  const classes = useStyle()
+  const classes_s = useStyle()
 
   return (
     <React.Fragment>
@@ -24,21 +25,22 @@ export default function PaymentForm() {
         <Grid item xs={12} sm={4}>
           <TextField required id="maintenanceAmt" label="Maintenance Amount" fullWidth />
         </Grid>
+
         <Grid item xs={12} sm={4}>
-          <TextField
+          <SimpleSelect />
+          {/* <TextField
             required
             id="penaltyAmt"
             label="Select fixed-percent"
             helperText=""
             fullWidth
-          />
+          /> */}
         </Grid>
         <Grid item xs={12} sm={4}>
           <TextField
             required
             id="penaltyAmt"
             label="Penalty Amount"
-            helperText="Fixed Amt or percentage"
             fullWidth
           />
         </Grid>
@@ -46,13 +48,13 @@ export default function PaymentForm() {
 
       <Grid container spacing={3}>
         <Grid container spacing={3}>
-          <Grid item lg={4} md={4}>
-            <Typography variant={"subtitle1"} className={classes.parkingTypo}>
-                Self Owned Parking
+          <Grid item lg={4} md={4} sm={12} xs={12}>
+            <Typography variant={"subtitle1"} className={classes_s.parkingTypo}>
+              Self Owned Parking
             </Typography>
           </Grid>
 
-          <Grid item lg={4} md={4}>
+          <Grid item lg={4} md={4} sm={6} xs={6}>
             <TextField
               required
               id="selfTwoWheel"
@@ -61,7 +63,7 @@ export default function PaymentForm() {
             />
           </Grid>
 
-          <Grid item lg={4} md={4}>
+          <Grid item lg={4} md={4} sm={6} xs={6}>
             <TextField
               required
               id="selfFourWheel"
@@ -72,13 +74,13 @@ export default function PaymentForm() {
         </Grid>
 
         <Grid container spacing={3}>
-          <Grid item lg={4} md={4}>
-            <Typography variant={"subtitle1"} className={classes.parkingTypo}>
+          <Grid item lg={4} md={4} sm={12} xs={12}>
+            <Typography variant={"subtitle1"} className={classes_s.parkingTypo}>
               Society Parking
             </Typography>
           </Grid>
 
-          <Grid item lg={4} md={4}>
+          <Grid item lg={4} md={4} sm={6} xs={6}>
             <TextField
               required
               id="societyTwoWheel"
@@ -87,7 +89,7 @@ export default function PaymentForm() {
             />
           </Grid>
 
-          <Grid item lg={4} md={4}>
+          <Grid item lg={4} md={4} sm={6} xs={6}>
             <TextField
               required
               id="societyFourWheel"

@@ -2,8 +2,6 @@ import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -11,6 +9,9 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
+
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import BusinessIcon from '@material-ui/icons/Business'
 
 import SocietyBasicForm from './BasicInfo';
 import PaymentForm from './PaymentForm';
@@ -21,8 +22,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="http://arsalaan.net/">
+        Arsalaan
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -67,18 +68,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const steps = ['Basic Info', 'Accounting Info', 'Billing Info', 'Wing Structure'];
+const steps = ['Basic Info', 'Current Accounts', 'Billing Info', 'Wings Info'];
 
 function getStepContent(step) {
-    switch (step) {
-        case 0:
-            return <SocietyBasicForm />;
-        case 1:
-            return <PaymentForm />;
-        case 2:
-            return <Review />;
-        case 3:
-            return <WingStructure />;
+  switch (step) {
+    case 0:
+      return <SocietyBasicForm />;
+    case 1:
+      return <PaymentForm />;
+    case 2:
+      return <Review />;
+    case 3:
+      return <WingStructure />;
     default:
       throw new Error('Unknown step');
   }
@@ -99,16 +100,19 @@ export default function Checkout() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="absolute" color="default" className={classes.appBar}>
+      {/* <AppBar position="absolute" color="default" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
             Logo of SMS
           </Typography>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
       <main className={classes.layout}>
         <Paper className={classes.paper}>
-          <Typography component="h1" variant="h4" align="center">
+          <ListItemIcon >
+            <BusinessIcon />
+          </ListItemIcon>
+          <Typography variant="h5" align="center">
             Society Registration
           </Typography>
           <Stepper activeStep={activeStep} className={classes.stepper}>
@@ -130,28 +134,28 @@ export default function Checkout() {
                 </Typography>
               </React.Fragment>
             ) : (
-              <React.Fragment>
-                {getStepContent(activeStep)}
-                <div className={classes.buttons}>
-                  {activeStep !== 0 && (
-                    <Button onClick={handleBack} className={classes.button}>
-                      Back
+                <React.Fragment>
+                  {getStepContent(activeStep)}
+                  <div className={classes.buttons}>
+                    {activeStep !== 0 && (
+                      <Button onClick={handleBack} className={classes.button}>
+                        Back
                     </Button>
-                  )}
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    className={classes.button}
-                  >
-                    {activeStep === steps.length - 1 ? 'Register Society' : 'Next'}
-                  </Button>
-                </div>
-              </React.Fragment>
-            )}
+                    )}
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleNext}
+                      className={classes.button}
+                    >
+                      {activeStep === steps.length - 1 ? 'Register Society' : 'Next'}
+                    </Button>
+                  </div>
+                </React.Fragment>
+              )}
           </React.Fragment>
         </Paper>
-        {/*<Copyright />*/}
+        <Copyright />
       </main>
     </React.Fragment>
   );
