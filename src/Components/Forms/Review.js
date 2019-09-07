@@ -3,18 +3,23 @@ import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import SimpleSelect from './SimpleSelect';
+import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 
 
 const useStyle = makeStyles({
   parkingTypo: {
     marginTop: '20px',
     fontWeight: 'bold'
-  }
+  },
+  formControl: {
+    minWidth: '100%',
+    marginTop:'0px'
+  },
 });
 
 export default function PaymentForm() {
-  const classes_s = useStyle()
+  const classes = useStyle()
+  const [values, setValues] = React.useState('Fixed');
 
   return (
     <React.Fragment>
@@ -27,14 +32,13 @@ export default function PaymentForm() {
         </Grid>
 
         <Grid item xs={12} sm={4}>
-          <SimpleSelect />
-          {/* <TextField
-            required
-            id="penaltyAmt"
-            label="Select fixed-percent"
-            helperText=""
-            fullWidth
-          /> */}
+          <FormControl className={classes.formControl}>
+            <InputLabel htmlFor='penaltyType'>Penalty Type</InputLabel>
+            <Select value={values} onChange={e => setValues(e.target.value)}>
+              <MenuItem value='Fixed'>Fixed</MenuItem>
+              <MenuItem value='Percent'>Percent</MenuItem>
+            </Select>
+          </FormControl>
         </Grid>
         <Grid item xs={12} sm={4}>
           <TextField
@@ -49,7 +53,7 @@ export default function PaymentForm() {
       <Grid container spacing={3}>
         <Grid container spacing={3}>
           <Grid item lg={4} md={4} sm={12} xs={12}>
-            <Typography variant={"subtitle1"} className={classes_s.parkingTypo}>
+            <Typography variant={"subtitle1"} className={classes.parkingTypo}>
               Self Owned Parking
             </Typography>
           </Grid>
@@ -75,7 +79,7 @@ export default function PaymentForm() {
 
         <Grid container spacing={3}>
           <Grid item lg={4} md={4} sm={12} xs={12}>
-            <Typography variant={"subtitle1"} className={classes_s.parkingTypo}>
+            <Typography variant={"subtitle1"} className={classes.parkingTypo}>
               Society Parking
             </Typography>
           </Grid>
