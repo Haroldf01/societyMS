@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import DocumentsFieldSet from './DyanmicInput';
 
 
 const useStyle = makeStyles({
@@ -13,7 +14,7 @@ const useStyle = makeStyles({
   },
   formControl: {
     minWidth: '100%',
-    marginTop:'0px'
+    marginTop: '0px'
   },
 });
 
@@ -102,6 +103,11 @@ export default function PaymentForm() {
             />
           </Grid>
         </Grid>
+
+        <Grid item lg={4} md={4} sm={6} xs={6}>
+          <DocumentsFieldSet />
+        </Grid>
+
       </Grid>
     </React.Fragment>
   );

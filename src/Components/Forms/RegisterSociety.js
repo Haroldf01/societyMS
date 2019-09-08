@@ -14,8 +14,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import BusinessIcon from '@material-ui/icons/Business'
 
 import SocietyBasicForm from './BasicInfo';
-import PaymentForm from './PaymentForm';
-import Review from './Review';
 import WingStructure from './WingStructure'
 
 function Copyright() {
@@ -68,17 +66,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const steps = ['Basic Info', 'Current Accounts', 'Billing Info', 'Wings Info'];
+const steps = ['Basic Info', 'Wings Info'];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
       return <SocietyBasicForm />;
     case 1:
-      return <PaymentForm />;
-    case 2:
-      return <Review />;
-    case 3:
       return <WingStructure />;
     default:
       throw new Error('Unknown step');
@@ -88,6 +82,7 @@ function getStepContent(step) {
 export default function Checkout() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
+  const [display, setDisplay] = React.useState([]);
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -97,16 +92,16 @@ export default function Checkout() {
     setActiveStep(activeStep - 1);
   };
 
+  const handleAddContent = () => {
+    setDisplay(display)
+    console.log(display)
+    console.log(display.length)
+  }
+
   return (
     <React.Fragment>
       <CssBaseline />
-      {/* <AppBar position="absolute" color="default" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Logo of SMS
-          </Typography>
-        </Toolbar>
-      </AppBar> */}
+
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <ListItemIcon >
@@ -126,11 +121,7 @@ export default function Checkout() {
             {activeStep === steps.length ? (
               <React.Fragment>
                 <Typography variant="h5" gutterBottom>
-                  Thank you for your order.
-                </Typography>
-                <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order confirmation, and will
-                  send you an update when your order has shipped.
+                  Thank you! Your Society has been Registered.
                 </Typography>
               </React.Fragment>
             ) : (

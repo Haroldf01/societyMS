@@ -3,8 +3,9 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SignIn from './Components/SignIn'
 import SingUp from './Components/SignUp'
-import Checkout from './Components/Forms/Checkout';
+import RegisterSociety from './Components/Forms/RegisterSociety';
 import Dashboard from './Components/Dashboard/Dashboard'
+import BillingDetails from './Components/Forms/CaptureBillingDetails'
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
                   <Route path='/' exact component={Home}/>
                   <Route path='/login' component={SignIn} />
                   <Route path='/signup' component={SingUp} />
-                  <Route path='/society' component={Checkout} />
+                  <Route path='/society' component={RegisterSociety} />
                   <Route path={'/dashboard'} component={Dashboard}/>
+                  <Route path={'/billing'} component={BillingDetails}/>
               </Switch>
           </div>
       </Router>

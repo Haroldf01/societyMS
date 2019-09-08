@@ -19,7 +19,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
-import SocietyForm from '../Forms/Checkout'
+import SocietyForm from '../Forms/RegisterSociety'
 
 import { mainListItems, secondaryListItems, thirdListItems, fourthItemList } from './listItems';
 
