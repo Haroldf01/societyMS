@@ -82,7 +82,6 @@ function getStepContent(step) {
 export default function Checkout() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
-  const [display, setDisplay] = React.useState([]);
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -91,12 +90,6 @@ export default function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
-
-  const handleAddContent = () => {
-    setDisplay(display)
-    console.log(display)
-    console.log(display.length)
-  }
 
   return (
     <React.Fragment>

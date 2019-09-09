@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,10 +14,8 @@ import Typography from '@material-ui/core/Typography';
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import BusinessIcon from '@material-ui/icons/Business'
 
-import SocietyBasicForm from './BasicInfo';
 import AccountingDetails from './AccountingDetails';
 import BillingDetails from './BillingDetails';
-import WingStructure from './WingStructure'
 
 function Copyright() {
 	return (
@@ -99,7 +98,7 @@ export default function CaptureBillingDetails() {
 	};
 
 	const handleAddContent = () => {
-		setDisplay(display)
+		setDisplay(display + 1)
 		console.log(display)
 		console.log(display.length)
 	}
@@ -143,7 +142,7 @@ export default function CaptureBillingDetails() {
 													variant='outlined'
 													color='secondary'>
 													Add Bill Heads
-											</Button>
+													</Button>
 											</React.Fragment>
 										)}
 										<Button

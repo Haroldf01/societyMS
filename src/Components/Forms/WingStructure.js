@@ -1,9 +1,10 @@
 import React from 'react';
+import SpringModal from './SpringModal';
 
 export default function WingStructure() {
   return (
       <div>
-          <h1>Wing Structure</h1>
+          <SpringModal />
       </div>
   );
 }
