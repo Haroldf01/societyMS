@@ -5,7 +5,10 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import { useSpring, animated } from 'react-spring';
 
-import { TextField, Button, Grid } from '@material-ui/core'
+import { TextField, Button, Grid, List } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
+
+import NestedList from './List'
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -56,6 +59,14 @@ const Fade = React.forwardRef(function Fade(props, ref) {
 function WingModal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [dataModal, setDataModal] = React.useState({
+    wingName: '',
+    numOfFloors: 0
+  });
+
+  const handleChange = name => event => {
+    setDataModal({...dataModal, [name]: event.target.value });
+  };
 
   const handleOpen = () => {
     setOpen(true);
@@ -65,13 +76,13 @@ function WingModal() {
     setOpen(false);
   };
 
-  const handleSubmit = () => {
-    console.log('Submited')
-    setOpen(false)
-  }
-
   return (
     <div>
+        {
+          dataModal
+        }
+
+
       <Button variant="outlined" color='secondary' onClick={handleOpen}>
         Add Wings
       </Button>
@@ -87,6 +98,9 @@ function WingModal() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
+            <Typography variant="h6" gutterBottom>
+              Add Wing
+            </Typography>
             <Grid item lg={8} md={8} sm={10} xs={10}>
               <TextField
                 required
@@ -94,7 +108,8 @@ function WingModal() {
                 name="wingName"
                 label="Wing Name"
                 fullWidth
-                autoComplete="wName"
+                value={dataModal[0]}
+                onChange={handleChange('name')}
               />
             </Grid>
 
@@ -105,12 +120,14 @@ function WingModal() {
                 name="numOfFloors"
                 label="Num of Floors"
                 fullWidth
+                value={dataModal[1]}
+                onChange={e => setDataModal(...dataModal, e.target.value)}
               />
             </Grid>
             <Button
               variant="outlined"
               color="secondary"
-              onClick={handleSubmit}
+              // onClick={}
               className={classes.button}
             >
               Done
@@ -118,6 +135,8 @@ function WingModal() {
           </div>
         </Fade>
       </Modal>
+      <h2>wing name is {dataModal[0]}</h2>
+      <h2>wing floors is {dataModal[1]}</h2>
     </div>
   );
 }
@@ -125,8 +144,8 @@ function WingModal() {
 
 export default function WingStructure() {
   return (
-      <div>
-          <WingModal />
-      </div>
+    <div>
+      <WingModal />
+    </div>
   );
 }

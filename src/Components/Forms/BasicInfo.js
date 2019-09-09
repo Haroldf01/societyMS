@@ -18,7 +18,6 @@ export default function AddressForm() {
             name="societyName"
             label="Society Name"
             fullWidth
-            autoComplete="sName"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -28,7 +27,6 @@ export default function AddressForm() {
             name="RegistrationNo"
             label="Registration Number"
             fullWidth
-            autoComplete="regNum"
           />
         </Grid>
         <Grid item xs={12}>
@@ -38,7 +36,6 @@ export default function AddressForm() {
             name="address1"
             label="Address line 1"
             fullWidth
-            autoComplete="address-line1"
           />
         </Grid>
         <Grid item xs={12}>
@@ -47,7 +44,6 @@ export default function AddressForm() {
             name="address2"
             label="Address line 2"
             fullWidth
-            autoComplete="address-line2"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -60,7 +56,6 @@ export default function AddressForm() {
             name="city"
             label="City"
             fullWidth
-            autoComplete="address-level2"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -70,7 +65,6 @@ export default function AddressForm() {
             name="zip"
             label="Zip / Postal code"
             fullWidth
-            autoComplete="postal-code"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -80,7 +74,6 @@ export default function AddressForm() {
             name="mobileNo"
             label="Mobile Number"
             fullWidth
-            autoComplete="mobile number"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -90,7 +83,6 @@ export default function AddressForm() {
             name="areaCode"
             label="Area Code"
             fullWidth
-            autoComplete="area code"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -100,7 +92,6 @@ export default function AddressForm() {
             name="landlineNo"
             label="Landline Number"
             fullWidth
-            autoComplete="landline number"
           />
         </Grid>
       </Grid>
