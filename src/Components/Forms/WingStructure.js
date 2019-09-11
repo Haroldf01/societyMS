@@ -64,9 +64,9 @@ function WingModal() {
     numOfFloors: 0
   });
 
-  const handleChange = name => event => {
-    setDataModal({...dataModal, [name]: event.target.value });
-  };
+  // const handleChange = name => event => {
+  //   setDataModal({...dataModal, [name]: event.target.value });
+  // };
 
   const handleOpen = () => {
     setOpen(true);
@@ -76,12 +76,14 @@ function WingModal() {
     setOpen(false);
   };
 
+  const handleSubmit = () => {
+    console.log(dataModal)
+    setOpen(false)
+  }
+
   return (
     <div>
-        {
-          dataModal
-        }
-
+      <NestedList />
 
       <Button variant="outlined" color='secondary' onClick={handleOpen}>
         Add Wings
@@ -108,8 +110,7 @@ function WingModal() {
                 name="wingName"
                 label="Wing Name"
                 fullWidth
-                value={dataModal[0]}
-                onChange={handleChange('name')}
+                onChange={e => setDataModal({ ...dataModal, wingName: e.target.value })}
               />
             </Grid>
 
@@ -120,14 +121,13 @@ function WingModal() {
                 name="numOfFloors"
                 label="Num of Floors"
                 fullWidth
-                value={dataModal[1]}
-                onChange={e => setDataModal(...dataModal, e.target.value)}
+                onChange={e => setDataModal({ ...dataModal, numOfFloors: e.target.value })}
               />
             </Grid>
             <Button
               variant="outlined"
               color="secondary"
-              // onClick={}
+              onClick={handleSubmit}
               className={classes.button}
             >
               Done
@@ -135,8 +135,8 @@ function WingModal() {
           </div>
         </Fade>
       </Modal>
-      <h2>wing name is {dataModal[0]}</h2>
-      <h2>wing floors is {dataModal[1]}</h2>
+      <h2>wing name {dataModal.wingName}</h2>
+      <h2>wing name {dataModal.numOfFloors}</h2>
     </div>
   );
 }
