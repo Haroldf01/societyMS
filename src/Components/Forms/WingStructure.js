@@ -5,7 +5,7 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import { useSpring, animated } from 'react-spring';
 
-import { TextField, Button, Grid, List } from '@material-ui/core'
+import { TextField, Button, Grid } from '@material-ui/core'
 import { Typography } from '@material-ui/core'
 
 import NestedList from './List'
@@ -56,7 +56,7 @@ const Fade = React.forwardRef(function Fade(props, ref) {
 	);
 });
 
-let temp = []
+let wingStructArray = []
 
 function WingModal() {
 	const classes = useStyles();
@@ -68,8 +68,8 @@ function WingModal() {
 
 
 	const addElements = () => {
-		temp.push({wingName: dataModal.wingName, numOfFloors: dataModal.numOfFloors})
-		console.log(temp)
+		wingStructArray.push({wingName: dataModal.wingName, numOfFloors: dataModal.numOfFloors})
+		console.log(wingStructArray)
 		setOpen(false)
 	}
 
@@ -135,8 +135,12 @@ function WingModal() {
 					</div>
 				</Fade>
 			</Modal>
-			<h2>wing name {dataModal.wingName}</h2>
-			<h2>wing floors {dataModal.numOfFloors}</h2>
+			<ul>
+				{
+					wingStructArray.map(wings => (
+					<li>{wings.wingName} {wings.numOfFloors}</li>
+					))}
+			</ul>
 		</div>
 	);
 }
