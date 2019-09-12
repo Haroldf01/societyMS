@@ -5,10 +5,12 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import { useSpring, animated } from 'react-spring';
 
-import { TextField, Button, Grid } from '@material-ui/core'
+import { TextField, Button, Grid, ListItem } from '@material-ui/core'
 import { Typography } from '@material-ui/core'
+import { List, ListItemText, ListItemIcon, Collapse } from '@material-ui/core'
 
-import NestedList from './List'
+import { ExpandLess, ExpandMore } from '@material-ui/icons'
+import BusinessIcon from '@material-ui/icons/Business'
 
 const useStyles = makeStyles(theme => ({
 	modal: {
@@ -34,6 +36,7 @@ const useStyles = makeStyles(theme => ({
 		width: '100%',
 		maxWidth: 240,
 		backgroundColor: theme.palette.background.paper,
+		fontSize: '24px'
 	},
 	nested: {
 		paddingLeft: theme.spacing(5),
@@ -55,7 +58,7 @@ const Fade = React.forwardRef(function Fade(props, ref) {
 				onExited();
 			}
 		},
-	});	
+	});
 
 	return (
 		<animated.div ref={ref} style={style} {...other}>
@@ -73,9 +76,10 @@ function WingModal() {
 		wingName: '',
 		numOfFloors: 0
 	});
+	const [expand, setExpand] = React.useState(true);
 
 	const addElements = () => {
-		wingStructArray.push({wingName: dataModal.wingName, numOfFloors: dataModal.numOfFloors})
+		wingStructArray.push({ wingName: dataModal.wingName, numOfFloors: dataModal.numOfFloors })
 		console.log(wingStructArray)
 		setOpen(false)
 	}
@@ -88,16 +92,39 @@ function WingModal() {
 		setOpen(false);
 	};
 
+	function handleClick() {
+		setExpand(!expand);
+	}
+
 	return (
 		<div>
-			<NestedList />
-			
-			<ul>
+			<List component='nav' className={classes.root}>
+				{wingStructArray.map(wings =>
+					<React.Fragment>
+						<ListItem button onClick={handleClick}>
+							<ListItemIcon>
+								<BusinessIcon />
+							</ListItemIcon>
+							<ListItemText primary={wings.wingName} />
+							{expand ? <ExpandLess /> : <ExpandMore />}
+						</ListItem>
+						<Collapse in={expand} timeout="auto" unmountOnExit>
+							<List component="div" disablePadding>
+								<ListItem button onClick={handleClick}>
+									<ListItemText primary={wings.numOfFloors} />
+								</ListItem>
+							</List>
+						</Collapse>
+					</React.Fragment>
+				)}
+			</List>
+
+			{/* <ul>
 				{
 					wingStructArray.map(wings => (
 					<li>{wings.wingName} {wings.numOfFloors}</li>
 					))}
-			</ul>
+			</ul> */}
 
 			<Button variant="outlined" color='secondary' onClick={handleOpen}>
 				Add Wings
@@ -149,7 +176,7 @@ function WingModal() {
 					</div>
 				</Fade>
 			</Modal>
-			
+
 		</div>
 	);
 }
