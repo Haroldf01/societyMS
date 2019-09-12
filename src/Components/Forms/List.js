@@ -11,23 +11,25 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 
+import FloorIcon from '../assets/icons/floor.svg';
+
 const useStyles = makeStyles(theme => ({
 	root: {
 		width: '100%',
-		maxWidth: 360,
+		maxWidth: 240,
 		backgroundColor: theme.palette.background.paper,
 	},
 	nested: {
-		paddingLeft: theme.spacing(4),
+		paddingLeft: theme.spacing(5),
 	},
 }));
 
 export default function NestedList() {
 	const classes = useStyles();
-	const [open, setOpen] = React.useState(true);
+	const [expand, setExpand] = React.useState(true);
 
 	function handleClick() {
-		setOpen(!open);
+		setExpand(!expand);
 	}
 
 	return (
@@ -41,27 +43,20 @@ export default function NestedList() {
 			}
 			className={classes.root}
 		>
-			<ListItem button>
-				<ListItemIcon>
-					<InboxIcon />
-				</ListItemIcon>
-				<ListItemText primary="Sent mail" />
-			</ListItem>
-
 			<ListItem button onClick={handleClick}>
 				<ListItemIcon>
 					<InboxIcon />
 				</ListItemIcon>
 				<ListItemText primary="Inbox" />
-				{open ? <ExpandLess /> : <ExpandMore />}
+				{expand ? <ExpandLess /> : <ExpandMore />}
 			</ListItem>
-			<Collapse in={open} timeout="auto" unmountOnExit>
+			<Collapse in={expand} timeout="auto" unmountOnExit>
 				<List component="div" disablePadding>
 					<ListItem button className={classes.nested}>
 						<ListItemIcon>
-							<StarBorder />
+							{/* <FloorIcon /> */}
 						</ListItemIcon>
-						<ListItemText primary="Starred" />
+						<ListItemText primary="0th Floor" />
 					</ListItem>
 				</List>
 			</Collapse>

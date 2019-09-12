@@ -29,6 +29,14 @@ const useStyles = makeStyles(theme => ({
 	button: {
 		marginTop: theme.spacing(3),
 		marginLeft: theme.spacing(1),
+	},
+	root: {
+		width: '100%',
+		maxWidth: 240,
+		backgroundColor: theme.palette.background.paper,
+	},
+	nested: {
+		paddingLeft: theme.spacing(5),
 	}
 }));
 
@@ -66,7 +74,6 @@ function WingModal() {
 		numOfFloors: 0
 	});
 
-
 	const addElements = () => {
 		wingStructArray.push({wingName: dataModal.wingName, numOfFloors: dataModal.numOfFloors})
 		console.log(wingStructArray)
@@ -84,6 +91,13 @@ function WingModal() {
 	return (
 		<div>
 			<NestedList />
+			
+			<ul>
+				{
+					wingStructArray.map(wings => (
+					<li>{wings.wingName} {wings.numOfFloors}</li>
+					))}
+			</ul>
 
 			<Button variant="outlined" color='secondary' onClick={handleOpen}>
 				Add Wings
@@ -135,12 +149,7 @@ function WingModal() {
 					</div>
 				</Fade>
 			</Modal>
-			<ul>
-				{
-					wingStructArray.map(wings => (
-					<li>{wings.wingName} {wings.numOfFloors}</li>
-					))}
-			</ul>
+			
 		</div>
 	);
 }
