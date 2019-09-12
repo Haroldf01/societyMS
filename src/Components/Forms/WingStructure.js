@@ -108,9 +108,11 @@ function WingModal() {
 							<ListItemText primary={wings.wingName} />
 							{expand ? <ExpandLess /> : <ExpandMore />}
 						</ListItem>
+
 						<Collapse in={expand} timeout="auto" unmountOnExit>
 							<List component="div" disablePadding>
-								<ListItem button onClick={handleClick}>
+								<ListItem button className={classes.nested}>
+									<ListItemIcon><BusinessIcon /></ListItemIcon>
 									<ListItemText primary={wings.numOfFloors} />
 								</ListItem>
 							</List>

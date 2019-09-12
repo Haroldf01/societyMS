@@ -50,6 +50,7 @@ export default function NestedList() {
 				<ListItemText primary="Inbox" />
 				{expand ? <ExpandLess /> : <ExpandMore />}
 			</ListItem>
+
 			<Collapse in={expand} timeout="auto" unmountOnExit>
 				<List component="div" disablePadding>
 					<ListItem button className={classes.nested}>
