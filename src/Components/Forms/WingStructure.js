@@ -76,7 +76,6 @@ function WingModal() {
 		wingName: '',
 		numOfFloors: 0
 	});
-	const [expand, setExpand] = React.useState(true);
 
 	const addElements = () => {
 		wingStructArray.push({ wingName: dataModal.wingName, numOfFloors: dataModal.numOfFloors })
@@ -92,31 +91,17 @@ function WingModal() {
 		setOpen(false);
 	};
 
-	function handleClick() {
-		setExpand(!expand);
-	}
-
 	return (
 		<div>
 			<List component='nav' className={classes.root}>
 				{wingStructArray.map(wings =>
 					<React.Fragment>
-						<ListItem button onClick={handleClick}>
+						<ListItem button>
 							<ListItemIcon>
 								<BusinessIcon />
 							</ListItemIcon>
-							<ListItemText primary={wings.wingName} />
-							{expand ? <ExpandLess /> : <ExpandMore />}
+							<ListItemText>{wings.wingName} - {wings.numOfFloors} Floors</ListItemText>
 						</ListItem>
-
-						<Collapse in={expand} timeout="auto" unmountOnExit>
-							<List component="div" disablePadding>
-								<ListItem button className={classes.nested}>
-									<ListItemIcon><BusinessIcon /></ListItemIcon>
-									<ListItemText primary={wings.numOfFloors} />
-								</ListItem>
-							</List>
-						</Collapse>
 					</React.Fragment>
 				)}
 			</List>
