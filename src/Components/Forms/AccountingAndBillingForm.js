@@ -2,9 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
+import { TextField, Divider } from '@material-ui/core';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-import DocumentsFieldSet from './DyanmicInput';
 
 
 const useStyle = makeStyles({
@@ -18,21 +17,41 @@ const useStyle = makeStyles({
   },
 });
 
-export default function PaymentForm() {
+let billHeadArray = []
+
+export default function AccountingAndBilling() {
   const classes = useStyle()
   const [values, setValues] = React.useState('Fixed');
 
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Billing Details
-      </Typography>
+      <div container='true'>&nbsp;</div>
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={4}>
-          <TextField required id="maintenanceAmt" label="Maintenance Amount" fullWidth />
+        <Grid item xs={12} sm={6}>
+          <TextField required id="maintenanceType" label="Maintenance Type" fullWidth />
         </Grid>
 
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={6}>
+          <TextField required id="maintenanceAmt" label="Maintenance Amount" fullWidth />
+        </Grid>
+      </Grid>
+
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={6}>
+          <TextField required id="currentMaintenanceBalance" label="Current Maintenance Balance" fullWidth />
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <TextField required id="yearOpeningBalance" label="Year Opening Balance" fullWidth />
+        </Grid>
+      </Grid>
+
+      {/* <Grid container spacing={3}>
+        <Divider variant="fullwidth" component='hr' absolute={true} />
+      </Grid> */}
+
+      <Grid container spacing={3}>
+        <Grid spacing={4} item xs={12} sm={6}>
           <FormControl className={classes.formControl}>
             <InputLabel htmlFor='penaltyType'>Penalty Type</InputLabel>
             <Select value={values} onChange={e => setValues(e.target.value)}>
@@ -41,7 +60,8 @@ export default function PaymentForm() {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item xs={12} sm={4}>
+
+        <Grid item xs={12} sm={6}>
           <TextField
             required
             id="penaltyAmt"
@@ -104,11 +124,11 @@ export default function PaymentForm() {
           </Grid>
         </Grid>
 
-        <Grid item lg={4} md={4} sm={6} xs={6}>
+        {/* <Grid item lg={4} md={4} sm={6} xs={6}>
           <DocumentsFieldSet />
-        </Grid>
+        </Grid> */}
 
       </Grid>
-    </React.Fragment>
+    </React.Fragment >
   );
 }

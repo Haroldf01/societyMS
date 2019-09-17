@@ -7,9 +7,8 @@ import { useSpring, animated } from 'react-spring';
 
 import { TextField, Button, Grid, ListItem } from '@material-ui/core'
 import { Typography } from '@material-ui/core'
-import { List, ListItemText, ListItemIcon, Collapse } from '@material-ui/core'
+import { List, ListItemText, ListItemIcon } from '@material-ui/core'
 
-import { ExpandLess, ExpandMore } from '@material-ui/icons'
 import BusinessIcon from '@material-ui/icons/Business'
 
 const useStyles = makeStyles(theme => ({
@@ -37,9 +36,6 @@ const useStyles = makeStyles(theme => ({
 		maxWidth: 240,
 		backgroundColor: theme.palette.background.paper,
 		fontSize: '24px'
-	},
-	nested: {
-		paddingLeft: theme.spacing(5),
 	}
 }));
 
