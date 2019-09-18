@@ -6,7 +6,7 @@ import { TextField, Divider } from '@material-ui/core';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 
 
-const useStyle = makeStyles({
+const useStyle = makeStyles(theme => ({
   parkingTypo: {
     marginTop: '20px',
     fontWeight: 'bold'
@@ -14,14 +14,14 @@ const useStyle = makeStyles({
   formControl: {
     minWidth: '100%',
     marginTop: '0px'
-  },
-});
+  }
+}));
 
 let billHeadArray = []
 
 export default function AccountingAndBilling() {
   const classes = useStyle()
-  const [values, setValues] = React.useState('Fixed');
+  const [values, setValues] = React.useState('');
 
   return (
     <React.Fragment>
@@ -123,10 +123,6 @@ export default function AccountingAndBilling() {
             />
           </Grid>
         </Grid>
-
-        {/* <Grid item lg={4} md={4} sm={6} xs={6}>
-          <DocumentsFieldSet />
-        </Grid> */}
 
       </Grid>
     </React.Fragment >

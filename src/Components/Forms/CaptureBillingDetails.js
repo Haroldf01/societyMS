@@ -106,7 +106,6 @@ const Fade = React.forwardRef(function Fade(props, ref) {
 export default function CaptureBillingDetails() {
 	const classes = useStyles();
 	const [activeStep, setActiveStep] = React.useState(0);
-  const [values, setValues] = React.useState('Fixed');
 	const [open, setOpen] = React.useState(false);
 	const [dataModal, setDataModal] = React.useState({
 		billHeadTitle: '',
@@ -128,14 +127,12 @@ export default function CaptureBillingDetails() {
 		setActiveStep(activeStep + 1);
 	};
 
-	// function handleChange(evt) {
-	// 	const value = evt.target.value
-	// 	setDataModal({
-	// 		...dataModal,
-	// 		[evt.target.name]: value
-	// 	})
-	// 	console.log("something something trident ", value)
-	// }
+	const handleChange = name => event => {
+		setDataModal({
+			...dataModal,
+			[name]: event.target.value
+		})
+	}
 
 	const newBillHead = () => {
 		console.log('button event fired')
@@ -169,14 +166,15 @@ export default function CaptureBillingDetails() {
 								name="billHeadTitle"
 								label="Title"
 								fullWidth
-							onChange={e => setDataModal({ ...dataModal, billHeadTitle: e.target.value })}
+								// onChange={e => setDataModal({ ...dataModal, billHeadTitle: e.target.value })}
+								onChange={handleChange('billHeadTitle')}
 							/>
 						</Grid>
 
 						<Grid item lg={8} md={8} sm={10} xs={10}>
 							<FormControl className={classes.formControl}>
 								<InputLabel htmlFor='penaltyType'>Penalty Type</InputLabel>
-								<Select value={values} onChange={e => setValues(e.target.value)}>
+								<Select value={dataModal.penaltyType} onChange={handleChange('penaltyType')}>
 									<MenuItem value='Fixed'>Fixed</MenuItem>
 									<MenuItem value='Percent'>Percent</MenuItem>
 								</Select>
@@ -190,7 +188,7 @@ export default function CaptureBillingDetails() {
 								name="billHeadValue"
 								label="Value"
 								fullWidth
-							onChange={e => setDataModal({ ...dataModal, billHeadValue: e.target.value })}
+								onChange={handleChange('billHeadValue')}
 							/>
 						</Grid>
 
@@ -201,7 +199,7 @@ export default function CaptureBillingDetails() {
 								name="currentAmt"
 								label="Current Balance"
 								fullWidth
-							onChange={e => setDataModal({ ...dataModal, currentBalance: e.target.value })}
+								onChange={handleChange('currentBalance')}
 							/>
 						</Grid>
 
@@ -212,7 +210,7 @@ export default function CaptureBillingDetails() {
 								name="yearOpenAmt"
 								label="Yearly Amt"
 								fullWidth
-							onChange={e => setDataModal({ ...dataModal, yearOpening: e.target.value })}
+								onChange={handleChange('yearOpening')}
 							/>
 						</Grid>
 						<Button
