@@ -1,32 +1,19 @@
 import React from 'react';
+import { useSpring, animated } from 'react-spring';
 
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 import { Typography, Modal, Grid, TextField } from '@material-ui/core/';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import BusinessIcon from '@material-ui/icons/Business'
-
 import Backdrop from '@material-ui/core/Backdrop';
-import { useSpring, animated } from 'react-spring';
 
 import BillingDetails from './AccountingAndBillingForm';
+import Copyright from '../Copyright'
 
-function Copyright() {
-	return (
-		<Typography variant="body2" color="textSecondary" align="center">
-			{'Copyright © '}
-			<Link color="inherit" href="http://arsalaan.net/">
-				Arsalaan
-      </Link>{' '}
-			{new Date().getFullYear()}
-			{'.'}
-		</Typography>
-	);
-}
 
 const useStyles = makeStyles(theme => ({
 	appBar: {

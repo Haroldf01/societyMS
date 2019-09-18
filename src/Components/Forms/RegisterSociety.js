@@ -2,32 +2,13 @@ import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Paper from '@material-ui/core/Paper';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
-import Typography from '@material-ui/core/Typography';
-
-import ListItemIcon from '@material-ui/core/ListItemIcon'
+import { Paper, Stepper, Step, StepLabel } from '@material-ui/core';
+import { Button, Typography, ListItemIcon } from '@material-ui/core';
 import BusinessIcon from '@material-ui/icons/Business'
 
 import SocietyBasicForm from './BasicInfo';
-import WingStructure from './WingStructure'
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="http://arsalaan.net/">
-        Arsalaan
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import WingStructure from './WingStructure';
+import Copyright from '../Copyright';
 
 const useStyles = makeStyles(theme => ({
   appBar: {

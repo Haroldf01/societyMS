@@ -3,23 +3,12 @@ import clsx from 'clsx';
 
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
+import { Drawer, AppBar, Toolbar, List, Typography } from '@material-ui/core';
+import { Divider, IconButton, Badge, Container } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-
-import SocietyForm from '../Forms/RegisterSociety'
 
 import { mainListItems, secondaryListItems, thirdListItems, fourthItemList } from './listItems';
 
@@ -27,20 +16,9 @@ import { mainListItems, secondaryListItems, thirdListItems, fourthItemList } fro
 // import Deposits from './Deposits';
 // import Orders from './Orders';
 
-import Avatar from '../Avatar'
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="http://arsalaan.net/">
-        Arsalaan
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import Avatar from '../Avatar';
+import SocietyForm from '../Forms/RegisterSociety';
+import Copyright from '../Copyright';
 
 const drawerWidth = 240;
 
