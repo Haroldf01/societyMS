@@ -6,7 +6,7 @@ import { TextField, Divider } from '@material-ui/core';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 
 
-const useStyle = makeStyles(theme => ({
+const useStyle = makeStyles({
   parkingTypo: {
     marginTop: '20px',
     fontWeight: 'bold'
@@ -15,11 +15,9 @@ const useStyle = makeStyles(theme => ({
     minWidth: '100%',
     marginTop: '0px'
   }
-}));
+});
 
-let billHeadArray = []
-
-export default function AccountingAndBilling({billheads}) {
+export default function AccountingAndBilling({ billheads }) {
   const classes = useStyle()
   const [values, setValues] = React.useState('');
 
