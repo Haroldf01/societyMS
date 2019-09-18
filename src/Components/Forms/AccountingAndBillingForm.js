@@ -19,7 +19,7 @@ const useStyle = makeStyles(theme => ({
 
 let billHeadArray = []
 
-export default function AccountingAndBilling() {
+export default function AccountingAndBilling({billheads}) {
   const classes = useStyle()
   const [values, setValues] = React.useState('');
 
@@ -51,7 +51,7 @@ export default function AccountingAndBilling() {
       </Grid> */}
 
       <Grid container spacing={3}>
-        <Grid spacing={4} item xs={12} sm={6}>
+        <Grid item xs={12} sm={6}>
           <FormControl className={classes.formControl}>
             <InputLabel htmlFor='penaltyType'>Penalty Type</InputLabel>
             <Select value={values} onChange={e => setValues(e.target.value)}>
@@ -72,59 +72,58 @@ export default function AccountingAndBilling() {
       </Grid>
 
       <Grid container spacing={3}>
-        <Grid container spacing={3}>
-          <Grid item lg={4} md={4} sm={12} xs={12}>
-            <Typography variant={"subtitle1"} className={classes.parkingTypo}>
-              Self Owned Parking
+        <Grid item lg={4} md={4} sm={12} xs={12}>
+          <Typography variant={"subtitle1"} className={classes.parkingTypo}>
+            Self Owned Parking
             </Typography>
-          </Grid>
-
-          <Grid item lg={4} md={4} sm={6} xs={6}>
-            <TextField
-              required
-              id="selfTwoWheel"
-              label="Two Wheeler"
-              fullWidth
-            />
-          </Grid>
-
-          <Grid item lg={4} md={4} sm={6} xs={6}>
-            <TextField
-              required
-              id="selfFourWheel"
-              label="Four Wheeler"
-              fullWidth
-            />
-          </Grid>
         </Grid>
 
-        <Grid container spacing={3}>
-          <Grid item lg={4} md={4} sm={12} xs={12}>
-            <Typography variant={"subtitle1"} className={classes.parkingTypo}>
-              Society Parking
-            </Typography>
-          </Grid>
-
-          <Grid item lg={4} md={4} sm={6} xs={6}>
-            <TextField
-              required
-              id="societyTwoWheel"
-              label="Two Wheeler"
-              fullWidth
-            />
-          </Grid>
-
-          <Grid item lg={4} md={4} sm={6} xs={6}>
-            <TextField
-              required
-              id="societyFourWheel"
-              label="Four Wheeler"
-              fullWidth
-            />
-          </Grid>
+        <Grid item lg={4} md={4} sm={6} xs={6}>
+          <TextField
+            required
+            id="selfTwoWheel"
+            label="Two Wheeler"
+            fullWidth
+          />
         </Grid>
 
+        <Grid item lg={4} md={4} sm={6} xs={6}>
+          <TextField
+            required
+            id="selfFourWheel"
+            label="Four Wheeler"
+            fullWidth
+          />
+        </Grid>
       </Grid>
+
+      <Grid container spacing={3}>
+        <Grid item lg={4} md={4} sm={12} xs={12}>
+          <Typography variant={"subtitle1"} className={classes.parkingTypo}>
+            Society Parking
+            </Typography>
+        </Grid>
+
+        <Grid item lg={4} md={4} sm={6} xs={6}>
+          <TextField
+            required
+            id="societyTwoWheel"
+            label="Two Wheeler"
+            fullWidth
+          />
+        </Grid>
+
+        <Grid item lg={4} md={4} sm={6} xs={6}>
+          <TextField
+            required
+            id="societyFourWheel"
+            label="Four Wheeler"
+            fullWidth
+          />
+        </Grid>
+      </Grid>
+
+      <h1>{billheads.billHeadTitle} - {billheads.penaltyType} - {billheads.billHeadValue} - {billheads.currentBalance} - {billheads.yearOpening}</h1>
     </React.Fragment >
   );
 }

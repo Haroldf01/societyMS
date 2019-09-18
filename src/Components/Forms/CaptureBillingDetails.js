@@ -135,7 +135,7 @@ export default function CaptureBillingDetails() {
 	}
 
 	const newBillHead = () => {
-		console.log('button event fired')
+		console.log('button event fired', dataModal)
 		handleClose()
 	}
 
@@ -222,11 +222,8 @@ export default function CaptureBillingDetails() {
 							Done
             </Button>
 					</div>
-					<h1>{dataModal.billHeadTitle} - {dataModal.billHeadValue} - {dataModal.penaltyType}</h1>
 				</Fade>
 			</Modal>
-
-			{/* ADD BILL HEAD MODAL END */}
 
 			<main className={classes.layout}>
 				<Paper className={classes.paper}>
@@ -245,7 +242,10 @@ export default function CaptureBillingDetails() {
 							</React.Fragment>
 						) : (
 								<React.Fragment>
-									<BillingDetails />
+									
+									{/* Passing data as props to Accounting and billing form */}
+									<BillingDetails billheads={dataModal} />
+
 									<div className={classes.buttons}>
 										<Button
 											onClick={handleOpen}
