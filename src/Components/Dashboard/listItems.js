@@ -1,8 +1,6 @@
 import React from 'react';
 
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import BusinessIcon from '@material-ui/icons/Business'
@@ -15,7 +13,7 @@ import BroadcastIcon from '@material-ui/icons/Send'
 import IncomeTrackerIcon from '@material-ui/icons/Receipt'
 import ExpenseTrackerIcon from '@material-ui/icons/Receipt'
 
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export const mainListItems = (
   <div>
@@ -26,7 +24,7 @@ export const mainListItems = (
       <ListItemText primary="Dashboard" />
     </ListItem>
 
-    <ListItem button primaryText={<Link to={'./society'}>As</Link>}>
+    <ListItem button >
       <ListItemIcon>
         <BusinessIcon />
       </ListItemIcon>

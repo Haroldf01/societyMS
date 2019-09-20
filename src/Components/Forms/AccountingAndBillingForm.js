@@ -1,15 +1,18 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { TextField, Divider } from '@material-ui/core';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import { List, ListItem, ListItemText } from '@material-ui/core';
 
 
 const useStyle = makeStyles({
   parkingTypo: {
     marginTop: '20px',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'right'
   },
   formControl: {
     minWidth: '100%',
@@ -20,6 +23,8 @@ const useStyle = makeStyles({
 export default function AccountingAndBilling({ billheads }) {
   const classes = useStyle()
   const [values, setValues] = React.useState('');
+
+  let id = 0;
 
   return (
     <React.Fragment>
@@ -121,7 +126,18 @@ export default function AccountingAndBilling({ billheads }) {
         </Grid>
       </Grid>
 
-      <h1>{billheads.billHeadTitle} - {billheads.penaltyType} - {billheads.billHeadValue} - {billheads.currentBalance} - {billheads.yearOpening}</h1>
+      <h1>BillHeads</h1>
+      {/* <h1>{billheads.map(heads=><p key={heads.key}>{heads.billHeadTitle}</p>)}</h1> */}
+
+      <List component='nav' >
+				{billheads.map(bills =>
+					<React.Fragment>
+						<ListItem divider={true} button>
+							<ListItemText>{bills.billHeadTitle} - {bills.penaltyType} - {bills.billHeadValue}</ListItemText>
+						</ListItem>
+					</React.Fragment>
+				)}
+			</List>
     </React.Fragment >
   );
 }

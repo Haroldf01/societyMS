@@ -60,11 +60,12 @@ const useStyles = makeStyles(theme => ({
 	},
 	formControl: {
 		minWidth: '100%',
-		marginTop: '0px'
+		marginTop: '0px',
 	}
 }));
 
 const steps = ['Accounting & Billing Info'];
+let billheadArray = []
 
 const Fade = React.forwardRef(function Fade(props, ref) {
 	const { in: open, children, onEnter, onExited, ...other } = props;
@@ -122,7 +123,15 @@ export default function CaptureBillingDetails() {
 	}
 
 	const newBillHead = () => {
-		console.log('button event fired', dataModal)
+		billheadArray.push({
+			billHeadTitle: dataModal.billHeadTitle,
+			penaltyType: dataModal.penaltyType,
+			billHeadValue: dataModal.billHeadValue,
+			currentBalance: dataModal.currentBalance,
+			yearOpening: dataModal.yearOpening
+		})
+		// console.log(dataModal)
+		// console.log(billheadArray)
 		handleClose()
 	}
 
@@ -229,9 +238,9 @@ export default function CaptureBillingDetails() {
 							</React.Fragment>
 						) : (
 								<React.Fragment>
-									
+
 									{/* Passing data as props to Accounting and billing form */}
-									<BillingDetails billheads={dataModal} />
+									<BillingDetails billheads={billheadArray} />
 
 									<div className={classes.buttons}>
 										<Button

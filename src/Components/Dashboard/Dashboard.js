@@ -18,7 +18,6 @@ import { mainListItems, secondaryListItems, thirdListItems, fourthItemList } fro
 
 import Avatar from '../Avatar';
 import SocietyForm from '../Forms/RegisterSociety';
-import Copyright from '../Copyright';
 
 const drawerWidth = 240;
 
@@ -183,7 +182,6 @@ export default function Dashboard() {
             </Grid>
           </Grid>
         </Container>
-        <Copyright />
       </main>
     </div>
   );
