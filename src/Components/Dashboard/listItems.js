@@ -13,7 +13,20 @@ import BroadcastIcon from '@material-ui/icons/Send'
 import IncomeTrackerIcon from '@material-ui/icons/Receipt'
 import ExpenseTrackerIcon from '@material-ui/icons/Receipt'
 
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import { Collapse, List } from '@material-ui/core'
+
 // import { Link } from 'react-router-dom';
+
+export default function SideBar() {
+  // const classes = useStyles();
+  const [expand, setExpand] = React.useState(true);
+
+  function handleClick() {
+    setExpand(!expand);
+  }
+}
 
 export const mainListItems = (
   <div>
@@ -24,12 +37,23 @@ export const mainListItems = (
       <ListItemText primary="Dashboard" />
     </ListItem>
 
-    <ListItem button >
-      <ListItemIcon>
-        <BusinessIcon />
-      </ListItemIcon>
-      <ListItemText primary='Society' />
-    </ListItem>
+    <List>
+      <ListItem button onClick={SideBar.prototype.handleClick}>
+        <ListItemIcon>
+          <BusinessIcon />
+        </ListItemIcon>
+        <ListItemText primary='Society' />
+        {SideBar.prototype.expand ? <ExpandLess /> : <ExpandMore />}
+      </ListItem>
+      <Collapse in={SideBar.prototype.expand} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItem button >
+            <ListItemText primary="Register Society" />
+          </ListItem>
+        </List>
+      </Collapse>
+    </List>
+
 
     <ListItem button>
       <ListItemIcon>

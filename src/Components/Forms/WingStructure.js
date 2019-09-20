@@ -102,13 +102,6 @@ function WingModal() {
 				)}
 			</List>
 
-			{/* <ul>
-				{
-					wingStructArray.map(wings => (
-					<li>{wings.wingName} {wings.numOfFloors}</li>
-					))}
-			</ul> */}
-
 			<Button variant="outlined" color='secondary' onClick={handleOpen}>
 				Add Wings
       </Button>

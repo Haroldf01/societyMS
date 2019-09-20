@@ -148,7 +148,7 @@ export default function AccountingAndBilling({ billheads }) {
 
                 <Grid item lg={4} md={4} sm={6} xs={6}>
                   <TextField
-                    label="Amount"
+                    label="Value"
                     value={bills.billHeadValue}
                     fullWidth
                   />
