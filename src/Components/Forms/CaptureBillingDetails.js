@@ -130,8 +130,6 @@ export default function CaptureBillingDetails() {
 			currentBalance: dataModal.currentBalance,
 			yearOpening: dataModal.yearOpening
 		})
-		// console.log(dataModal)
-		// console.log(billheadArray)
 		handleClose()
 	}
 

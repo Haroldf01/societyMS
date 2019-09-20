@@ -24,8 +24,6 @@ export default function AccountingAndBilling({ billheads }) {
   const classes = useStyle()
   const [values, setValues] = React.useState('');
 
-  let id = 0;
-
   return (
     <React.Fragment>
       <div container='true'>&nbsp;</div>
@@ -130,14 +128,37 @@ export default function AccountingAndBilling({ billheads }) {
       {/* <h1>{billheads.map(heads=><p key={heads.key}>{heads.billHeadTitle}</p>)}</h1> */}
 
       <List component='nav' >
-				{billheads.map(bills =>
-					<React.Fragment>
-						<ListItem divider={true} button>
-							<ListItemText>{bills.billHeadTitle} - {bills.penaltyType} - {bills.billHeadValue}</ListItemText>
-						</ListItem>
-					</React.Fragment>
-				)}
-			</List>
+        {billheads.map(bills =>
+          <React.Fragment>
+            <ListItem divider={true} button>
+              <Grid container spacing={3}>
+                <Grid item lg={4} md={4} sm={12} xs={12}>
+                  <Typography variant={"subtitle1"} className={classes.parkingTypo}>
+                    {bills.billHeadTitle}
+                  </Typography>
+                </Grid>
+
+                <Grid item lg={4} md={4} sm={6} xs={6}>
+                  <TextField
+                    label="Penalty Type"
+                    value={bills.penaltyType}
+                    fullWidth
+                  />
+                </Grid>
+
+                <Grid item lg={4} md={4} sm={6} xs={6}>
+                  <TextField
+                    required
+                    label="Amount"
+                    value={bills.billHeadValue}
+                    fullWidth
+                  />
+                </Grid>
+              </Grid>
+            </ListItem>
+          </React.Fragment>
+        )}
+      </List>
     </React.Fragment >
   );
 }
