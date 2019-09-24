@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { TextField, Divider } from '@material-ui/core';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-import { List, ListItem, ListItemText } from '@material-ui/core';
+import { List, ListItem } from '@material-ui/core';
 
 
 const useStyle = makeStyles({
@@ -125,7 +125,6 @@ export default function AccountingAndBilling({ billheads }) {
       </Grid>
 
       <h1>BillHeads</h1>
-      {/* <h1>{billheads.map(heads=><p key={heads.key}>{heads.billHeadTitle}</p>)}</h1> */}
 
       <List component='nav' >
         {billheads.map(bills =>
