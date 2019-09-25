@@ -45,10 +45,10 @@ export default function SignUp() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography variant="h5" align={'center'}>
-         Create Your SMS Account
+         Create Your CHMS Account
         </Typography>
         <Typography variant="subtitle1" align={'center'}>
-          Continue to SMS
+          Continue to CHMS
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
@@ -94,8 +94,17 @@ export default function SignUp() {
                 name="password"
                 label="Password"
                 type="password"
-                id="password"
-                autoComplete="current-password"
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="CNFpassword"
+                label="Confirm Password"
+                type="password"
               />
             </Grid>
           </Grid>

@@ -49,7 +49,7 @@ export default function SignIn() {
           Sign in
         </Typography>
         <Typography variant="subtitle1" align={'center'}>
-          Continue to SMS
+          Continue to CHMS
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -74,10 +74,10 @@ export default function SignIn() {
             id="password"
             autoComplete="current-password"
           />
-          <FormControlLabel
+          {/* <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
-          />
+          /> */}
           <Button
             type="submit"
             fullWidth
@@ -89,7 +89,7 @@ export default function SignIn() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link to='/forgetpwd' variant="body2">
                 Forgot password?
               </Link>
             </Grid>
@@ -101,7 +101,7 @@ export default function SignIn() {
           </Grid>
         </form>
       </div>
-      <Box mt={8}>
+      <Box mt={5}>
         <Copyright />
       </Box>
     </Container>
