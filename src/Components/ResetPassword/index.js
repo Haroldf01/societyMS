@@ -3,10 +3,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import { Avatar, Button, TextField, FormControlLabel } from '@material-ui/core';
-import { Grid, Box, Typography, Container, Checkbox } from '@material-ui/core';
+import { Avatar, Button, TextField } from '@material-ui/core';
+import { Box, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { Link } from 'react-router-dom';
 
 import Copyright from '../Copyright';
 

@@ -9,6 +9,7 @@ import BillingDetails from './Components/Forms/CaptureBillingDetails';
 import Members from './Components/Member';
 import ForgetPassword from './Components/ForgetPassword';
 import ResetPassword from './Components/ResetPassword';
+import TableDemo from './Components/Member/TableDemo';
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 					<Route path={'/member'} component={Members} />
 					<Route path={'/forgetpwd'} component={ForgetPassword} />
 					<Route path={'/resetpwd'} component={ResetPassword} />
+					<Route path={'/table'} component={TableDemo} />
 				</Switch>
 			</div>
 		</Router>

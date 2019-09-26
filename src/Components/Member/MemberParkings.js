@@ -6,6 +6,8 @@ import { FormControl, InputLabel, MenuItem, Tooltip } from '@material-ui/core';
 import { Backdrop, Modal } from '@material-ui/core';
 import { useSpring, animated } from 'react-spring';
 
+import TableDemo from './TableDemo';
+
 const useStyles = makeStyles(theme => ({
 	modal: {
 		display: 'flex',
@@ -222,7 +224,8 @@ export default function MemberParking() {
 				Parking Details
       </Typography>
 			<Grid container spacing={3}>
-				<ParkingModal />
+				{/* <ParkingModal /> */}
+				<TableDemo />
 			</Grid>
 		</React.Fragment>
 	);
