@@ -119,7 +119,7 @@ function ParkingModal() {
 					<div className={classes.paper}>
 						<Typography variant="h6" gutterBottom>
 							Add Parking
-            </Typography>
+			</Typography>
 
 						<Grid item lg={8} md={8} sm={10} xs={10}>
 							<TextField
@@ -169,7 +169,7 @@ function ParkingModal() {
 							className={classes.button}
 						>
 							Done
-            </Button>
+			</Button>
 					</div>
 				</Fade>
 			</Modal>
@@ -222,7 +222,7 @@ export default function MemberParking() {
 		<React.Fragment>
 			<Typography variant="h6" color={'textSecondary'}>
 				Parking Details
-      </Typography>
+		</Typography>
 			<Grid container spacing={3}>
 				{/* <ParkingModal /> */}
 				<TableDemo />

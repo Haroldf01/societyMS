@@ -54,7 +54,7 @@ export default function TableDemo() {
       },
     ],
     data: [
-      { vehicleID: '1', registrationNo: 'qwert', vehicleType: 0, parkingType: 1 },
+      { vehicleID: '1', registrationNo: 'MH-02-BW-6471', vehicleType: 0, parkingType: 1 },
     ],
   });
 

@@ -56,7 +56,7 @@ function getStepContent(step) {
       return <MemberInfo />;
     case 1:
 	  return <MemberParking />;
-	case 2:
+	  case 2:
       return <MemberTanent />;
     default:
       throw new Error('Unknown step');

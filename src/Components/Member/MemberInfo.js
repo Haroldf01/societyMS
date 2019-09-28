@@ -159,7 +159,6 @@ export default function MemberInfo() {
         }
 
       </Grid>
-
     </React.Fragment>
   );
 }

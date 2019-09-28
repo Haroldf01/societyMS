@@ -8,93 +8,66 @@ export default function MemberTanent() {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Society Registration Details
+        Tenant Details
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="societyName"
-            name="societyName"
-            label="Society Name"
+            name="fistName"
+            label="First Name"
             fullWidth
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="RegistrationNo"
-            name="RegistrationNo"
-            label="Registration Number"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            required
-            id="address1"
-            name="address1"
-            label="Address line 1"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            id="address2"
-            name="address2"
-            label="Address line 2"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField required id="state" name="state" label="State" fullWidth />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="city"
-            name="city"
-            label="City"
+            name="lastName"
+            label="Last Name"
             fullWidth
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="zip"
-            name="zip"
-            label="Zip / Postal code"
+            name="contactNo"
+            label="Contact No."
             fullWidth
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="mobileNo"
-            name="mobileNo"
-            label="Mobile Number"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="areaCode"
-            name="areaCode"
-            label="Area Code"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="landlineNo"
-            name="landlineNo"
-            label="Landline Number"
+            name="email"
+            label="Email ID"
             fullWidth
           />
         </Grid>
       </Grid>
-    </React.Fragment>
+
+      <Typography variant='subtitle1'>
+        Agreement Duration
+      </Typography>
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            name="from"
+            label="From"
+            type="date"
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            name="to"
+            label="To"
+            type="date"
+            fullWidth
+          />
+        </Grid>
+      </Grid>
+    </React.Fragment >
   );
 }
