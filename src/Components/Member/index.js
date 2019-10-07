@@ -3,7 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Paper, Stepper, Step, StepLabel } from '@material-ui/core';
-import { Button, Typography, ListItemIcon } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import BusinessIcon from '@material-ui/icons/Business';
 
 import { FormControlLabel, Checkbox } from '@material-ui/core';
@@ -71,7 +71,8 @@ export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const [checked, setChecked] = React.useState({
-    checkedA: false
+    checkedA: false,
+    checkedB: false
   });
 
   function conditionalStepper() {
@@ -141,20 +142,21 @@ export default function Checkout() {
                       {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                     </Button>
                   </div>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={checked.checkedA}
-                        onChange={handleChange('checkedA')}
-                        value={checked.checkedA}
-                        color="primary"
-                      />
-                    }
-                    label="Do You Own a Parking?"
-                  />
+
                 </React.Fragment>
               )}
 
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={checked.checkedA}
+                  onChange={handleChange('checkedA')}
+                  value={checked.checkedA}
+                  color="primary"
+                />
+              }
+              label="Do You Own a Parking?"
+            />
           </React.Fragment>
         </Paper>
         <Copyright />

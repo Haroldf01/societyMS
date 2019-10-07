@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Drawer, AppBar, Toolbar, List, Typography } from '@material-ui/core';
 import { Divider, IconButton, Badge, Container } from '@material-ui/core';
-import { Grid, Paper } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -109,7 +109,7 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>

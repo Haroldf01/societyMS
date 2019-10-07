@@ -3,7 +3,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles'
 import { TextField, Grid, Typography, Select } from '@material-ui/core';
 import { FormControl, InputLabel, MenuItem } from '@material-ui/core';
-import { FormControlLabel, Checkbox } from '@material-ui/core';
 
 const useStyle = makeStyles({
   formControl: {

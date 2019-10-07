@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { Avatar, Button, TextField } from '@material-ui/core';
-import { Box, Typography, Container, Checkbox } from '@material-ui/core';
+import { Box, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 import Copyright from '../Copyright';

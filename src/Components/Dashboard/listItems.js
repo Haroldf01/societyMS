@@ -21,11 +21,11 @@ import { Collapse, List } from '@material-ui/core'
 
 export default function SideBar() {
   // const classes = useStyles();
-  const [expand, setExpand] = React.useState(true);
+  // const [expand, setExpand] = React.useState(true);
 
-  function handleClick() {
-    setExpand(!expand);
-  }
+  // function handleClick() {
+  //   setExpand(!expand);
+  // }
 }
 
 export const mainListItems = (
