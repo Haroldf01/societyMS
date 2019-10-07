@@ -16,14 +16,6 @@ const useStyle = makeStyles({
 export default function MemberInfo() {
   const classes = useStyle()
   const [values, setValues] = React.useState('');
-  const [checked, setChecked] = React.useState({
-    checkedA: false
-  });
-
-  console.log(checked.checkedA)
-  const handleChange = name => event => {
-    setChecked({ ...checked, [name]: event.target.checked });
-  };
 
   return (
     <React.Fragment>
@@ -76,7 +68,7 @@ export default function MemberInfo() {
             name="area"
             label="Area"
             fullWidth
-            helperText='in sq feets'
+            // helperText='in sq feets'
           />
         </Grid>
 
@@ -138,26 +130,6 @@ export default function MemberInfo() {
             fullWidth
           />
         </Grid>
-
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={checked.checkedA}
-              onChange={handleChange('checkedA')}
-              value={checked.checkedA}
-              color="primary"
-            />
-          }
-          label="Do You Own a Parking?"
-        />
-        {
-          checked.checkedA !== true ? (
-            <h3>false</h3>
-          ) : (
-            <h3>true</h3>
-          )
-        }
-
       </Grid>
     </React.Fragment>
   );

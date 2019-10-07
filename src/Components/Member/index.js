@@ -6,6 +6,8 @@ import { Paper, Stepper, Step, StepLabel } from '@material-ui/core';
 import { Button, Typography, ListItemIcon } from '@material-ui/core';
 import BusinessIcon from '@material-ui/icons/Business';
 
+import { FormControlLabel, Checkbox } from '@material-ui/core';
+
 import MemberInfo from './MemberInfo';
 import MemberParking from './MemberParkings';
 import MemberTanent from './TanentForm';
@@ -49,14 +51,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const steps = ['Basic Info', 'parkings', 'Tanents'];
+const coniditionSteps = ['Basic Info', 'Tanents'];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
       return <MemberInfo />;
     case 1:
-	  return <MemberParking />;
-	  case 2:
+      return <MemberParking />;
+    case 2:
       return <MemberTanent />;
     default:
       throw new Error('Unknown step');
@@ -66,6 +69,32 @@ function getStepContent(step) {
 export default function Checkout() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
+
+  const [checked, setChecked] = React.useState({
+    checkedA: false
+  });
+
+  function conditionalStepper() {
+
+    if (checked.checkedA !== true) {
+      return coniditionSteps.map(label => (
+        <Step key={label}>
+          <StepLabel>{label}</StepLabel>
+        </Step>
+      ));
+    } else {
+      return steps.map(label => (
+        <Step key={label}>
+          <StepLabel>{label}</StepLabel>
+        </Step>
+      ));
+    }
+  }
+
+  console.log(checked.checkedA)
+  const handleChange = name => event => {
+    setChecked({ ...checked, [name]: event.target.checked });
+  };
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -81,18 +110,11 @@ export default function Checkout() {
 
       <main className={classes.layout}>
         <Paper className={classes.paper}>
-          <ListItemIcon >
-            <BusinessIcon />
-          </ListItemIcon>
           <Typography variant="h5" align="center">
-            Add Members
+            <BusinessIcon /> Add Members
           </Typography>
           <Stepper activeStep={activeStep} className={classes.stepper}>
-            {steps.map(label => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
+            {conditionalStepper()}
           </Stepper>
           <React.Fragment>
             {activeStep === steps.length ? (
@@ -119,8 +141,20 @@ export default function Checkout() {
                       {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                     </Button>
                   </div>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked.checkedA}
+                        onChange={handleChange('checkedA')}
+                        value={checked.checkedA}
+                        color="primary"
+                      />
+                    }
+                    label="Do You Own a Parking?"
+                  />
                 </React.Fragment>
               )}
+
           </React.Fragment>
         </Paper>
         <Copyright />

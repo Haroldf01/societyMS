@@ -63,6 +63,9 @@ export default function TableDemo() {
       icons={tableIcons}
       title="Add Parking"
       columns={state.columns}
+      options={{
+        search: false
+      }}
       data={state.data}
       editable={{
         onRowAdd: newData =>
