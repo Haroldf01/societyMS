@@ -56,10 +56,13 @@ const coniditionSteps = ['Basic Info', 'Tanents'];
 function getStepContent(step) {
   switch (step) {
     case 0:
+    	console.log(0);
       return <MemberInfo />;
     case 1:
+    	console.log(1);
       return <MemberParking />;
     case 2:
+    	console.log(2);
       return <MemberTanent />;
     default:
       throw new Error('Unknown step');
@@ -75,24 +78,44 @@ export default function Checkout() {
     checkedB: false
   });
 
+  let iter = '';
+
   function conditionalStepper() {
 
     if (checked.checkedA !== true) {
-      return coniditionSteps.map(label => (
+    	iter = coniditionSteps.map(label => (
         <Step key={label}>
           <StepLabel>{label}</StepLabel>
         </Step>
       ));
+      return iter
     } else {
-      return steps.map(label => (
+    	iter = steps.map(label => (
         <Step key={label}>
           <StepLabel>{label}</StepLabel>
         </Step>
       ));
+      return iter
     }
   }
 
-  console.log(checked.checkedA)
+  function test() {
+  	console.log(iter[1].key);
+
+  	getStepContent(0);
+
+  	// condition is getting true but the problem is that component is not getting rendered.
+	  // and this is called at line 157
+
+  	if (iter.length === 2 && iter[1].key === 'Tanents') {
+  		console.log('break');
+  		getStepContent(2);
+	  } else {
+  		getStepContent(activeStep);
+	  }
+  }
+
+  console.log(checked.checkedA);
   const handleChange = name => event => {
     setChecked({ ...checked, [name]: event.target.checked });
   };
@@ -114,34 +137,39 @@ export default function Checkout() {
           <Typography variant="h5" align="center">
             <BusinessIcon /> Add Members
           </Typography>
+
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {conditionalStepper()}
           </Stepper>
-          <React.Fragment>
-            {activeStep === steps.length ? (
+
+	        <React.Fragment>
+		        {console.log(iter.length)}
+            {activeStep === iter.length ? (
               <React.Fragment>
                 <Typography variant="h5" gutterBottom>
                   Thank you! Your Society has been Registered.
                 </Typography>
               </React.Fragment>
             ) : (
-                <React.Fragment>
-                  {getStepContent(activeStep)}
-                  <div className={classes.buttons}>
-                    {activeStep !== 0 && (
-                      <Button onClick={handleBack} className={classes.button}>
-                        Back
-                    </Button>
-                    )}
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={handleNext}
-                      className={classes.button}
-                    >
-                      {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                    </Button>
-                  </div>
+              <React.Fragment>
+	              {/*{getStepContent(activeStep)}*/}
+
+	              {test()}
+	              <div className={classes.buttons}>
+		              {activeStep !== 0 && (
+		              	<Button onClick={handleBack} className={classes.button}>
+				              Back
+			              </Button>
+		              )}
+		              <Button
+			              variant="contained"
+			              color="primary"
+			              onClick={handleNext}
+			              className={classes.button}
+		              >
+			              {activeStep === iter.length - 1 ? 'Finish' : 'Next'}
+			              </Button>
+	              </div>
 
                 </React.Fragment>
               )}
