@@ -65,7 +65,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const steps = ['Accounting & Billing Info'];
-let billheadArray = []
+let billheadArray = [];
 
 const Fade = React.forwardRef(function Fade(props, ref) {
 	const { in: open, children, onEnter, onExited, ...other } = props;
