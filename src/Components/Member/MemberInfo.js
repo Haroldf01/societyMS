@@ -67,7 +67,7 @@ export default function MemberInfo() {
             name="area"
             label="Area"
             fullWidth
-            // helperText='in sq feets'
+          // helperText='in sq feets'
           />
         </Grid>
 

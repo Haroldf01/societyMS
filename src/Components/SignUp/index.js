@@ -6,6 +6,7 @@ import { Avatar, Button, TextField } from '@material-ui/core';
 import { Grid, Box, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 import Copyright from '../Copyright'
 
@@ -36,6 +37,42 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignUp() {
   const classes = useStyles();
+  const [ data, setData ] = React.useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    CNFpassword: ''
+  });
+
+  const handleChange = event => {
+    setData({ ...data, [event.target.name]: event.target.value })
+	}
+	
+	const test = () => {
+		alert('hey');
+	}
+
+  const handleSubmit = event => {
+		event.preventDefault();
+
+		alert('submit');
+
+		const user = {
+			firstName: data.firstName,
+			lastName: data.lastName,
+			email: data.email,
+			password: data.password
+		}
+
+		console.log('submit data', data);
+
+		axios.post(`https://jsonplaceholder.typicode.com/users`, { user })
+		.then(res => {
+			console.log(res);
+			console.log(res.data);
+		})
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -54,14 +91,13 @@ export default function SignUp() {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
-                autoComplete="fname"
                 name="firstName"
                 variant="outlined"
                 required
                 fullWidth
-                id="firstName"
                 label="First Name"
-                autoFocus
+								autoFocus
+								onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -69,10 +105,9 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                id="lastName"
                 label="Last Name"
-                name="lastName"
-                autoComplete="lname"
+								name="lastName"
+								onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -80,10 +115,9 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                id="email"
                 label="Email Address"
-                name="email"
-                autoComplete="email"
+								name="email"
+								onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -93,7 +127,8 @@ export default function SignUp() {
                 fullWidth
                 name="password"
                 label="Password"
-                type="password"
+								type="password"
+								onChange={handleChange}
               />
             </Grid>
 
@@ -104,7 +139,8 @@ export default function SignUp() {
                 fullWidth
                 name="CNFpassword"
                 label="Confirm Password"
-                type="password"
+								type="password"
+								onChange={handleChange}
               />
             </Grid>
           </Grid>
@@ -113,7 +149,8 @@ export default function SignUp() {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+						className={classes.submit}
+						onClick={handleSubmit}
           >
             Sign Up
           </Button>

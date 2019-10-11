@@ -152,7 +152,7 @@ export default function CaptureBillingDetails() {
 					<div className={classes.modalPaper}>
 						<Typography variant="h6" gutterBottom>
 							New Bill Head
-            </Typography>
+						</Typography>
 						<Grid item lg={8} md={8} sm={10} xs={10}>
 							<TextField
 								required

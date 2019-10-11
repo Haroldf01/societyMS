@@ -10,6 +10,8 @@ import Members from './Components/Member';
 import ForgetPassword from './Components/ForgetPassword';
 import ResetPassword from './Components/ResetPassword';
 import TableDemo from './Components/Member/TableDemo';
+import PersonList from './Components/Demo/APIGetRequest';
+import PersonInput from './Components/Demo/APIPostRequest';
 
 function App() {
 	return (
@@ -26,6 +28,8 @@ function App() {
 					<Route path={'/forgetpwd'} component={ForgetPassword} />
 					<Route path={'/resetpwd'} component={ResetPassword} />
 					<Route path={'/table'} component={TableDemo} />
+					<Route path={'/api/get'} component={PersonList} />
+					<Route path={'/api/post'} component={PersonInput} />
 				</Switch>
 			</div>
 		</Router>

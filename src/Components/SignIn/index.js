@@ -6,7 +6,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { Avatar, Button, TextField } from '@material-ui/core';
 import { Grid, Box, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import Copyright from '../Copyright';
 
@@ -37,6 +38,29 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignIn() {
   const classes = useStyles();
+  const [data, setData] = React.useState({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = event => {
+    setData({ ...data, [event.target.name]: event.target.value })
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    const user = {
+      email: data.email,
+      password: data.password
+    }
+
+    axios.post(`https://jsonplaceholder.typicode.com/users`, { user })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -57,11 +81,10 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
-            id="email"
             label="Email Address"
             name="email"
-            autoComplete="email"
             autoFocus
+            onChange={handleChange}
           />
           <TextField
             variant="outlined"
@@ -71,8 +94,7 @@ export default function SignIn() {
             name="password"
             label="Password"
             type="password"
-            id="password"
-            autoComplete="current-password"
+            onChange={handleChange}
           />
           {/* <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -84,6 +106,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={handleSubmit}
           >
             Sign In
           </Button>
