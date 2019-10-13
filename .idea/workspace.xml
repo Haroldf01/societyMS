@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3eec0faf-d129-422e-8682-26b562ae5045" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Arsalaan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Arsalaan.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Member/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Member/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/SignIn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/SignIn/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/SignUp/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/SignUp/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,20 +15,20 @@
     <session id="846183563">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.5" value="2" />
+          <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="js" value="43" />
+          <entry key="js" value="45" />
           <entry key="json" value="2" />
           <entry key="md" value="1" />
         </counts>
@@ -37,7 +36,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="43" />
+          <entry key="JavaScript" value="45" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
@@ -49,12 +48,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="4623" />
+          <entry key="js" value="4629" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="4623" />
+          <entry key="JavaScript" value="4629" />
         </counts>
       </usages-collector>
     </session>
@@ -64,8 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/Member/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="107" column="37" selection-start-line="107" selection-start-column="37" selection-end-line="107" selection-end-column="37" />
+            <state relative-caret-position="219">
+              <caret line="63" column="1" lean-forward="true" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -118,8 +117,6 @@
         <option value="$PROJECT_DIR$/src/Components/Avatar/index.js" />
         <option value="$PROJECT_DIR$/src/Components/Notifications/index.js" />
         <option value="$PROJECT_DIR$/src/Components/Dashboard/Dashboard.js" />
-        <option value="$PROJECT_DIR$/src/Components/SignUp/index.js" />
-        <option value="$PROJECT_DIR$/src/Components/SignIn/index.js" />
         <option value="$PROJECT_DIR$/src/Components/Forms/PaymentForm.js" />
         <option value="$PROJECT_DIR$/src/Components/Forms/Checkout.js" />
         <option value="$PROJECT_DIR$/src/Components/Demo/MouseContainer.js" />
@@ -130,6 +127,8 @@
         <option value="$PROJECT_DIR$/src/Components/Demo/HookMouse.js" />
         <option value="$PROJECT_DIR$/src/Components/Forms/WingStructure.js" />
         <option value="$PROJECT_DIR$/src/Components/Member/index.js" />
+        <option value="$PROJECT_DIR$/src/Components/SignUp/index.js" />
+        <option value="$PROJECT_DIR$/src/Components/SignIn/index.js" />
       </list>
     </option>
   </component>
@@ -150,8 +149,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="151" />
+    <option name="x" value="-9" />
+    <option name="y" value="150" />
     <option name="width" value="1375" />
     <option name="height" value="885" />
   </component>
@@ -163,6 +162,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -188,11 +188,24 @@
               <item name="Components" type="462c0819:PsiDirectoryNode" />
               <item name="Member" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="sms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sms" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Components" type="462c0819:PsiDirectoryNode" />
+              <item name="SignIn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sms" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Components" type="462c0819:PsiDirectoryNode" />
+              <item name="SignUp" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -246,10 +259,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="121" width="1100" height="708" extended-state="0" />
+    <frame x="-7" y="120" width="1100" height="708" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.21538462" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21538462" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -296,20 +309,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Notifications/index.js" />
-    <entry file="file://$PROJECT_DIR$/src/Components/SignUp/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="114" column="16" lean-forward="true" selection-start-line="114" selection-start-column="16" selection-end-line="114" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/SignIn/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Dashboard/Dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-88">
@@ -402,9 +401,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -424,10 +420,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/SignIn/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/SignUp/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1144">
+          <caret line="81" column="23" lean-forward="true" selection-start-line="81" selection-start-column="23" selection-end-line="81" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Member/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="107" column="37" selection-start-line="107" selection-start-column="37" selection-end-line="107" selection-end-column="37" />
+        <state relative-caret-position="219">
+          <caret line="63" column="1" lean-forward="true" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

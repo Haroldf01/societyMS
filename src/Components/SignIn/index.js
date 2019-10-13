@@ -45,7 +45,7 @@ export default function SignIn() {
 
   const handleChange = event => {
     setData({ ...data, [event.target.name]: event.target.value })
-  }
+  };
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -53,14 +53,14 @@ export default function SignIn() {
     const user = {
       email: data.email,
       password: data.password
-    }
+    };
 
     axios.post(`https://jsonplaceholder.typicode.com/users`, { user })
       .then(res => {
         console.log(res);
         console.log(res.data);
       })
-  }
+  };
 
   return (
     <Container component="main" maxWidth="xs">

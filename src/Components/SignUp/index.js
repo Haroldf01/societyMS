@@ -47,23 +47,17 @@ export default function SignUp() {
 
   const handleChange = event => {
     setData({ ...data, [event.target.name]: event.target.value })
-	}
-	
-	const test = () => {
-		alert('hey');
-	}
+	};
 
   const handleSubmit = event => {
 		event.preventDefault();
-
-		alert('submit');
 
 		const user = {
 			firstName: data.firstName,
 			lastName: data.lastName,
 			email: data.email,
 			password: data.password
-		}
+		};
 
 		console.log('submit data', data);
 
@@ -72,7 +66,7 @@ export default function SignUp() {
 			console.log(res);
 			console.log(res.data);
 		})
-  }
+  };
 
   return (
     <Container component="main" maxWidth="xs">
