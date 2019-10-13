@@ -74,24 +74,22 @@ export default function Checkout() {
 
   console.log('checked parking', checked.parking);
   console.log('checked tenant', checked.tenant);
+
   const handleChange = name => event => {
+    console.log('inside HANDLE CHANGE FUNCTION');
     setChecked({ ...checked, [name]: event.target.checked });
   };
 
-  // making some logic for addItem() value
-  
-  // const test = () => {
-  //   for (let i = 0; i <= steps.length; i++) {
-  //     if (steps[i] === '')
-  //   }
-  // }
-
   const addItem = () => {
+    console.log('inside ADDITEM FUNCTION');
     setSteps([...steps, {
-      id: steps.length,
-      value: checked.parking && checked.tenant
-    }])
-  }
+      id: steps.length === activeStep,
+      value: handleChange()
+    }]);
+    console.log('line 89 setSteps output', steps)
+  };
+
+  console.log('line 92 setSteps outside output', steps)
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -122,7 +120,7 @@ export default function Checkout() {
             {activeStep === steps.length ? (
               <React.Fragment>
                 <Typography variant="h5" gutterBottom>
-                  Thank you! Your Society has been Registered.
+                  Thank you! Your Member has been Registered.
                 </Typography>
               </React.Fragment>
             ) : (
@@ -152,9 +150,9 @@ export default function Checkout() {
                 control={
                   <Checkbox
                     checked={checked.parking}
-                    // onChange={handleChange('parking')}
-                    onChange={addItem}
                     value={checked.parking}
+                    onChange={handleChange('parking')}
+                    // onChange={(event) => { handleChange('parking'); addItem(); }}
                     color="primary"
                   />
                 }
@@ -165,13 +163,13 @@ export default function Checkout() {
                 control={
                   <Checkbox
                     checked={checked.tenant}
-                    // onChange={handleChange('tenant')}
-                    onChange={addItem}
                     value={checked.tenant}
+                    // onChange={handleChange('tenant')}
+                    onChange={(event) => { handleChange('tenant'); addItem(); }}
                     color="primary"
                   />
                 }
-                label="Are u a tenant?"
+                label="Are you a tenant?"
               />
             </React.Fragment>) : (
               <div></div>
