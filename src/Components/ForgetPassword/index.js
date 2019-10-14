@@ -7,6 +7,8 @@ import { Avatar, Button, TextField } from '@material-ui/core';
 import { Box, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
+import axios from 'axios';
+
 import Copyright from '../Copyright';
 
 const useStyles = makeStyles(theme => ({
@@ -26,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 		backgroundColor: theme.palette.secondary.main,
 	},
 	form: {
-		width: '100%', // Fix IE 11 issue.
+		width: '100%',
 		marginTop: theme.spacing(1),
 	},
 	submit: {
@@ -36,6 +38,27 @@ const useStyles = makeStyles(theme => ({
 
 export default function ForgetPassword() {
 	const classes = useStyles();
+	const [data, setData] = React.useState({
+		email: ''
+	  });
+	
+	  const handleChange = event => {
+		setData({ ...data, [event.target.name]: event.target.value })
+	  };
+	
+	  const handleSubmit = event => {
+		event.preventDefault();
+	
+		const user = {
+		  email: data.email,
+		};
+	
+		axios.post(`http://localhost:8000/api/forgotpassword`, { user })
+		  .then(res => {
+			console.log(res);
+			console.log(res.data);
+		  })
+	  };
 
 	return (
 		<Container component="main" maxWidth="xs">
@@ -53,10 +76,10 @@ export default function ForgetPassword() {
 						margin="normal"
 						required
 						fullWidth
-						id="email"
 						label="Email Address"
 						name="email"
 						autoFocus
+						onChange={handleChange}
 					/>
 					<Button
 						type="submit"
@@ -64,6 +87,7 @@ export default function ForgetPassword() {
 						variant="contained"
 						color="primary"
 						className={classes.submit}
+						onClick={handleSubmit}
 					>
 						Reset
           </Button>

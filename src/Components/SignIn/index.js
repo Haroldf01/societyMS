@@ -55,7 +55,7 @@ export default function SignIn() {
       password: data.password
     };
 
-    axios.post(`https://jsonplaceholder.typicode.com/users`, { user })
+    axios.post(`http://localhost:8000/api/login`, { user })
       .then(res => {
         console.log(res);
         console.log(res.data);

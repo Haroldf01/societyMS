@@ -72,24 +72,19 @@ export default function Checkout() {
     tenant: false
   });
 
-  console.log('checked parking', checked.parking);
-  console.log('checked tenant', checked.tenant);
+  console.log('checked parking', checked.parking, ' checked tenant', checked.tenant);
 
   const handleChange = name => event => {
-    console.log('inside HANDLE CHANGE FUNCTION');
     setChecked({ ...checked, [name]: event.target.checked });
   };
 
   const addItem = () => {
-    console.log('inside ADDITEM FUNCTION');
     setSteps([...steps, {
-      id: steps.length === activeStep,
-      value: handleChange()
+      value: checked
     }]);
-    console.log('line 89 setSteps output', steps)
   };
 
-  console.log('line 92 setSteps outside output', steps)
+  console.log('line 91 setSteps outside output', steps)
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -149,10 +144,8 @@ export default function Checkout() {
               <FormControlLabel
                 control={
                   <Checkbox
-                    checked={checked.parking}
-                    value={checked.parking}
-                    onChange={handleChange('parking')}
-                    // onChange={(event) => { handleChange('parking'); addItem(); }}
+                    // onChange={handleChange('parking')}
+                    onChange={(event) => { handleChange('parking'); addItem(); }}
                     color="primary"
                   />
                 }
@@ -162,10 +155,8 @@ export default function Checkout() {
               <FormControlLabel
                 control={
                   <Checkbox
-                    checked={checked.tenant}
-                    value={checked.tenant}
-                    // onChange={handleChange('tenant')}
-                    onChange={(event) => { handleChange('tenant'); addItem(); }}
+                    onChange={handleChange('tenant')}
+                    // onChange={(event) => { handleChange('tenant'); addItem(); }}
                     color="primary"
                   />
                 }

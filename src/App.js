@@ -28,7 +28,7 @@ function App() {
 					<Route path={'/forgetpwd'} component={ForgetPassword} />
 					<Route path={'/resetpwd'} component={ResetPassword} />
 					<Route path={'/table'} component={TableDemo} />
-					<Route path={'/api/get'} component={PersonList} />
+					<Route path={'/api/get/:userId'} component={PersonList} />
 					<Route path={'/api/post'} component={PersonInput} />
 				</Switch>
 			</div>

@@ -49,7 +49,7 @@ export default function SignUp() {
     setData({ ...data, [event.target.name]: event.target.value })
 	};
 
-  const handleSubmit = event => {
+  const handlePost = event => {
 		event.preventDefault();
 
 		const user = {
@@ -61,11 +61,11 @@ export default function SignUp() {
 
 		console.log('submit data', data);
 
-		axios.post(`https://jsonplaceholder.typicode.com/users`, { user })
+    axios.post(`/api/register`, { user })
 		.then(res => {
 			console.log(res);
 			console.log(res.data);
-		})
+    })
   };
 
   return (
@@ -144,7 +144,7 @@ export default function SignUp() {
             variant="contained"
             color="primary"
 						className={classes.submit}
-						onClick={handleSubmit}
+						onClick={handlePost}
           >
             Sign Up
           </Button>
