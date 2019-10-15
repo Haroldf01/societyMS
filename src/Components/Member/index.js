@@ -63,28 +63,23 @@ function getStepContent(step) {
   }
 }
 
+let steps = ['Basic Info'];
+
 export default function Checkout() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
-  const [steps, setSteps] = React.useState(['Basic Info'])
+  const [arrayStep, setArrayStep] = React.useState(steps[0]);
+
+  console.log(arrayStep);
+
   const [checked, setChecked] = React.useState({
     parking: false,
     tenant: false
   });
 
-  console.log('checked parking', checked.parking, ' checked tenant', checked.tenant);
-
   const handleChange = name => event => {
     setChecked({ ...checked, [name]: event.target.checked });
   };
-
-  const addItem = () => {
-    setSteps([...steps, {
-      value: checked
-    }]);
-  };
-
-  console.log('line 91 setSteps outside output', steps)
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -94,6 +89,15 @@ export default function Checkout() {
     setActiveStep(activeStep - 1);
   };
 
+  if (checked.parking === true && steps.includes('Member Parking') !== true) {
+    steps.push('Member Parking');
+  }
+
+  if (checked.tenant === true && steps.includes('Member Tenant') !== true) {
+    steps.push('Member Tenant');
+  }
+
+  console.log(steps);
   return (
     <React.Fragment>
       <CssBaseline />
@@ -103,10 +107,10 @@ export default function Checkout() {
           <Typography variant="h5" align="center">
             <BusinessIcon /> Add Members
           </Typography>
-          <Stepper activeStep={activeStep} className={classes.stepper}>
+          <Stepper steps={steps} className={classes.stepper}>
             {steps.map(label => (
-              <Step key={label.id}>
-                <StepLabel>{label.value}</StepLabel>
+              <Step key={label['id']}>
+                <StepLabel>{label}</StepLabel>
               </Step>
             ))}
           </Stepper>
@@ -144,8 +148,8 @@ export default function Checkout() {
               <FormControlLabel
                 control={
                   <Checkbox
-                    // onChange={handleChange('parking')}
-                    onChange={(event) => { handleChange('parking'); addItem(); }}
+                    onChange={handleChange('parking')}
+                    // onChange={(event) => { setParking(event.target.checked); addItem(); }}
                     color="primary"
                   />
                 }
@@ -156,7 +160,7 @@ export default function Checkout() {
                 control={
                   <Checkbox
                     onChange={handleChange('tenant')}
-                    // onChange={(event) => { handleChange('tenant'); addItem(); }}
+                    // onChange={(event) => { setTenant(event.target.checked); addItem(); }}
                     color="primary"
                   />
                 }
