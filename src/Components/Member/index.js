@@ -52,11 +52,11 @@ const useStyles = makeStyles(theme => ({
 
 function getStepContent(step) {
   switch (step) {
-    case 0:
+    case "Basic Info":
       return <MemberInfo />;
-    case 1:
+    case "Member Parking":
       return <MemberParking />;
-    case 2:
+    case "Member Tenant":
       return <MemberTanent />;
     default:
       throw new Error('Unknown step');
@@ -68,9 +68,9 @@ let steps = ['Basic Info'];
 export default function Checkout() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
-  const [arrayStep, setArrayStep] = React.useState(steps[0]);
+  // const [arrayStep, setArrayStep] = React.useState(steps[0]);
 
-  console.log(arrayStep);
+  // console.log(arrayStep);
 
   const [checked, setChecked] = React.useState({
     parking: false,
@@ -107,7 +107,8 @@ export default function Checkout() {
           <Typography variant="h5" align="center">
             <BusinessIcon /> Add Members
           </Typography>
-          <Stepper steps={steps} className={classes.stepper}>
+          <Stepper steps={steps[activeStep]} className={classes.stepper}>
+            {console.log(steps)}
             {steps.map(label => (
               <Step key={label['id']}>
                 <StepLabel>{label}</StepLabel>
@@ -124,7 +125,7 @@ export default function Checkout() {
               </React.Fragment>
             ) : (
                 <React.Fragment>
-                  {getStepContent(activeStep)}
+                  {getStepContent(steps[activeStep])}
                   <div className={classes.buttons}>
                     {activeStep !== 0 && (
                       <Button onClick={handleBack} className={classes.button}>

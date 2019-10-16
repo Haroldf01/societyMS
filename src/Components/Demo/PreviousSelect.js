@@ -1,3 +1,5 @@
+import React from 'react';
+
 var Select = React.createClass({
 	getInitialState: function () {
 		return {
