@@ -9,15 +9,15 @@ export default class PersonList extends React.Component {
 	};
 
 	componentDidMount() {
-		const { match: {params} } = this.props;
+		const { match: { params } } = this.props;
 
 		console.log('hey', params)
 
 		axios.get(`https://jsonplaceholder.typicode.com/users/${params.userId}`)
-		// axios.get(`https://jsonplaceholder.typicode.com/users`)
+			// axios.get(`https://jsonplaceholder.typicode.com/users`)
 			.then(res => {
 				let status = res.status;
-				console.log( res.data );
+				console.log(res.data);
 				if (status === 200) {
 					this.setState({
 						isVerified: true
@@ -29,7 +29,7 @@ export default class PersonList extends React.Component {
 
 	render() {
 		if (this.state.isVerified) {
-			return <Redirect to = {{ pathname: '/login' }} />
+			return <Redirect to={{ pathname: '/login' }} />
 		}
 		return <React.Fragment>
 			<ul>

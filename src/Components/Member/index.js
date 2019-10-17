@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-      width: 600,
+      width: 700,
       marginLeft: 'auto',
       marginRight: 'auto',
     },
@@ -68,10 +68,6 @@ let steps = ['Basic Info'];
 export default function Checkout() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
-  // const [arrayStep, setArrayStep] = React.useState(steps[0]);
-
-  // console.log(arrayStep);
-
   const [checked, setChecked] = React.useState({
     parking: false,
     tenant: false
@@ -97,7 +93,6 @@ export default function Checkout() {
     steps.push('Member Tenant');
   }
 
-  console.log(steps);
   return (
     <React.Fragment>
       <CssBaseline />
@@ -110,7 +105,7 @@ export default function Checkout() {
           <Stepper steps={steps[activeStep]} className={classes.stepper}>
             {console.log(steps)}
             {steps.map(label => (
-              <Step key={label['id']}>
+              <Step key={label[activeStep]}>
                 <StepLabel>{label}</StepLabel>
               </Step>
             ))}
@@ -150,7 +145,6 @@ export default function Checkout() {
                 control={
                   <Checkbox
                     onChange={handleChange('parking')}
-                    // onChange={(event) => { setParking(event.target.checked); addItem(); }}
                     color="primary"
                   />
                 }

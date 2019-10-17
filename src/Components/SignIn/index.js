@@ -6,7 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { Avatar, Button, TextField } from '@material-ui/core';
 import { Grid, Box, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 import Copyright from '../Copyright';
@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -42,6 +42,7 @@ export default function SignIn() {
     email: '',
     password: '',
   });
+  const [isVerified, setIsVerified] = React.useState(false);
 
   const handleChange = event => {
     setData({ ...data, [event.target.name]: event.target.value })
@@ -55,12 +56,24 @@ export default function SignIn() {
       password: data.password
     };
 
-    axios.post(`http://localhost:8000/api/login`, { user })
+    let config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    axios.post(`http://192.168.0.104:8000/api/login/`, user, config)
       .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
+        console.log('status code', res.status)
+        if (res.status === 200) {
+          setIsVerified(true);
+        }
+      });
   };
+
+  if (isVerified) {
+    return <Redirect to={{ pathname: '/dashboard' }} />;
+  }
 
   return (
     <Container component="main" maxWidth="xs">
