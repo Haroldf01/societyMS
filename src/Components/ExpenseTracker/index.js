@@ -47,20 +47,24 @@ const useStyles = makeStyles(theme => ({
 
 export default function Tracker() {
 	const classes = useStyles();
-	const [values, setValues] = React.useState('');
-	const [ type, setType ] = React.useState({
-		name: 'income',
-		values: ['Selling of Flats', 'Selling of Scraps', 'Mobile Tower', 'Ad Hoardings', 'Club House Rental', 'Others']
-	});
+	const [selectType, setSelectType] = React.useState('Income');
+	const [value, setValue] = React.useState('');
 
-	let type_obj = {
-		Expense: ['Security', 'House Keeping', 'Electricity Bills', 'Water Bills', 'HK Materials', 'Stationary', 'Staff Salary', 'fees', 'Gardner', 'Others'],
-		
-	};
+	const VIEWS = [
+		{
+			name: 'Income',
+			value: ['Selling of Flats', 'Selling of Scraps', 'Mobile Tower', 'Ad Hoardings', 'Club House Rental', 'Others']
+		}, {
+			name: 'Expense',
+			value: ['Security', 'House Keeping', 'Electricity Bills', 'Water Bills', 'HK Materials', 'Stationary', 'Staff Salary', 'fees', 'Gardner', 'Others']
+		}
+	]
 
-	// const handleChange = (event) => {
-	// 	setType(values);
-	// }
+	const handleChange = (newIndex) => {
+		setValue( view.value[newIndex] );
+	}
+
+	const view = VIEWS.filter(({ name }) => name === selectType)[0]
 
 	return (
 		<React.Fragment>
@@ -76,33 +80,33 @@ export default function Tracker() {
 						<Grid item lg={4} md={4} sm={6} xs={6}>
 							<FormControl className={classes.formControl}>
 								<InputLabel htmlFor='expenseType'>Type</InputLabel>
-								<Select value={values} onChange={e => setValues(e.target.value)}>
-									<MenuItem value='Income'>Income</MenuItem>
-									<MenuItem value='Expense'>Expense</MenuItem>
+								<Select value={selectType} onChange={e => setSelectType(e.target.value)}>
+									{VIEWS.map(({ name }) => (
+										<MenuItem key={name} value={name}>{name}</MenuItem>
+									))}
 								</Select>
 							</FormControl>
 						</Grid>
 
+						{/* Review: https://stackoverflow.com/questions/35379140/reactjs-materialui-selectfield-event-handling */}
+						
 						<Grid item lg={4} md={4} sm={6} xs={6}>
 							<FormControl className={classes.formControl}>
 								<InputLabel htmlFor='head'>Head</InputLabel>
-								<Select value={values} onChange={e => setValues(e.target.value)}>
-									<MenuItem value='Selling of Flats'>Selling of Flats</MenuItem>
-									<MenuItem value='Selling of Scraps'>Selling of Scraps</MenuItem>
-									<MenuItem value='Mobile Tower'>Mobile Tower</MenuItem>
-									<MenuItem value='Ad Hoardings'>Ad Hoardings</MenuItem>
-									<MenuItem value='Club House Rental'>Club House Rental</MenuItem>
-									<MenuItem value='Others'>Others</MenuItem>
+								<Select value={value} onChange={(e, newIndex) => handleChange(newIndex)} >
+									{view.value.map(function(v, index) {
+										return <MenuItem key={index} value={v}>{v}</MenuItem>
+									})}
 								</Select>
 							</FormControl>
 						</Grid>
 
 						<Grid item lg={4} md={4} sm={6} xs={6}>
 							<FormControl className={classes.formControl}>
-								<InputLabel htmlFor='unitType'>Unit Type</InputLabel>
-								<Select value={values} onChange={e => setValues(e.target.value)}>
-									<MenuItem value='Flat'>Flat</MenuItem>
-									<MenuItem value='Shop'>Shop</MenuItem>
+								<InputLabel htmlFor='unitType'>Payment Type</InputLabel>
+								<Select value={value} onChange={e => setValue(e.target.value)}>
+									<MenuItem value='Cash'>Cash</MenuItem>
+									<MenuItem value='Cheque'>Cheque</MenuItem>
 								</Select>
 							</FormControl>
 						</Grid>
