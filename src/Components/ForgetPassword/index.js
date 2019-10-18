@@ -40,25 +40,40 @@ export default function ForgetPassword() {
 	const classes = useStyles();
 	const [data, setData] = React.useState({
 		email: ''
-	  });
-	
-	  const handleChange = event => {
+	});
+	const [isVerified, setIsVerified] = React.useState(false);
+
+	const handleChange = event => {
 		setData({ ...data, [event.target.name]: event.target.value })
-	  };
-	
-	  const handleSubmit = event => {
+	};
+
+	const handleSubmit = event => {
 		event.preventDefault();
-	
+
 		const user = {
-		  email: data.email,
+			email: data.email,
 		};
-	
-		axios.post(`http://localhost:8000/api/forgotpassword`, { user })
-		  .then(res => {
-			console.log(res);
-			console.log(res.data);
-		  })
-	  };
+
+		console.log(user);
+
+		let config = {
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		}
+
+		axios.post(`http://192.168.0.104:8000/api/forgot-password/`, user, config)
+			.then(res => {
+				console.log('status code', res.status)
+				if (res.status === 200) {
+					setIsVerified(true);
+				}
+			});
+	};
+
+	if (isVerified) {
+	  return <Typography>Reset Password link sent on your email</Typography>;
+	}
 
 	return (
 		<Container component="main" maxWidth="xs">

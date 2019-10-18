@@ -9,10 +9,13 @@ import BillingDetails from './Components/Forms/CaptureBillingDetails';
 import Members from './Components/Member';
 import ForgetPassword from './Components/ForgetPassword';
 import ResetPassword from './Components/ResetPassword';
-import TableDemo from './Components/Member/TableDemo';
-import PersonList from './Components/Demo/APIGetRequest';
-import PersonInput from './Components/Demo/APIPostRequest';
 import Tracker from './Components/ExpenseTracker';
+import EmailVerification from './Components/EmailVerification';
+import FourOhFourError from './Components/Errors/FourOhFour';
+
+// import TableDemo from './Components/Member/TableDemo';
+// import PersonList from './Components/Demo/APIGetRequest';
+// import PersonInput from './Components/Demo/APIPostRequest';
 
 function App() {
 	return (
@@ -29,9 +32,12 @@ function App() {
 					<Route path={'/forgetpwd'} component={ForgetPassword} />
 					<Route path={'/resetpwd'} component={ResetPassword} />
 					<Route path={'/expense'} component={Tracker} />
-					<Route path={'/table'} component={TableDemo} />
+					<Route path={'/emailverify/:u/:cd'} component={EmailVerification} />
+					<Route component={FourOhFourError} />
+
+					{/* <Route path={'/table'} component={TableDemo} />
 					<Route path={'/api/get/:userId'} component={PersonList} />
-					<Route path={'/api/post'} component={PersonInput} />
+					<Route path={'/api/post'} component={PersonInput} /> */}
 				</Switch>
 			</div>
 		</Router>

@@ -5,7 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { Avatar, Button, TextField } from '@material-ui/core';
 import { Grid, Box, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 import Copyright from '../Copyright'
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -62,8 +62,6 @@ export default function SignUp() {
       password: data.password
     };
 
-    console.log('user data captured', user);
-
     let config = {
       headers: {
         'Content-Type': 'application/json'
@@ -72,13 +70,9 @@ export default function SignUp() {
 
     axios.post(`http://192.168.0.104:8000/api/register/`, user, config)
       .then(res => {
-        console.log('status code', res.status);
         if (res.status === 201) {
           setIsVerified(true);
         }
-        // setPerson( res.data );
-        // console.log('verified output',isVerified);
-        // console.log('Person data after setPerson', person);
       });
   };
 

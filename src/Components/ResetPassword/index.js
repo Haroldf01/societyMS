@@ -6,6 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { Avatar, Button, TextField } from '@material-ui/core';
 import { Box, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import axios from 'axios';
 
 import Copyright from '../Copyright';
 
@@ -44,7 +45,7 @@ export default function ResetPassword() {
 				<Avatar className={classes.avatar}>
 					<LockOutlinedIcon />
 				</Avatar>
-				<Typography variant="h5" align={'center'}>
+				<Typography variant="h5" align={'centers'}>
 					Reset Password
         </Typography>
 
@@ -56,7 +57,7 @@ export default function ResetPassword() {
 						fullWidth
 						label="Email Address"
 						name="email"
-						autoFocus
+						disabled
 					/>
 					<TextField
 						variant="outlined"
@@ -66,7 +67,7 @@ export default function ResetPassword() {
 						name="password"
 						label="New Password"
 						type="password"
-						id="password"
+						autoFocus
 					/>
 					<TextField
 						variant="outlined"
