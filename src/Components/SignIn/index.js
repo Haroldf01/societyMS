@@ -44,6 +44,8 @@ export default function SignIn() {
   });
   const [isVerified, setIsVerified] = React.useState(false);
 
+  document.title = 'Login';
+
   const handleChange = event => {
     setData({ ...data, [event.target.name]: event.target.value })
   };
@@ -58,13 +60,17 @@ export default function SignIn() {
 
     let config = {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       }
     }
 
+    let token;
+
     axios.post(`http://192.168.0.104:8000/api/login/`, user, config)
       .then(res => {
-        console.log('status code', res.status)
+        token = res.data.token;
+        console.log(typeof(token));
+        localStorage.setItem('token', token);
         if (res.status === 200) {
           setIsVerified(true);
         }

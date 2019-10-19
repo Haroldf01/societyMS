@@ -103,6 +103,8 @@ export default function CaptureBillingDetails() {
 		yearOpening: 0
 	});
 
+	document.title = 'Accounting & Billing'
+
 	const handleOpen = () => {
 		setOpen(true);
 	};

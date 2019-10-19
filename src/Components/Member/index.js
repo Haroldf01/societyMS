@@ -73,6 +73,8 @@ export default function Checkout() {
     tenant: false
   });
 
+  document.title = 'Member Registration';
+
   const handleChange = name => event => {
     setChecked({ ...checked, [name]: event.target.checked });
   };

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageNotFound from '../assets/img/PageNotFound.png';
 
 export default function FourOhFourError() {
+    document.title = 'Not Found'
     return (
         <React.Fragment>
             <div>

@@ -5,6 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { Paper, Stepper, Step, StepLabel } from '@material-ui/core';
 import { Button, Typography, ListItemIcon } from '@material-ui/core';
 import BusinessIcon from '@material-ui/icons/Business'
+import axios from 'axios';
 
 import SocietyBasicForm from './BasicInfo';
 import WingStructure from './WingStructure';
@@ -35,7 +36,6 @@ const useStyles = makeStyles(theme => ({
     },
   },
   stepper: {
-    // padding: theme.spacing(3, 0, 5),
     paddingLeft: theme.spacing(4)
   },
   buttons: {
@@ -65,6 +65,8 @@ export default function Checkout() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
+  document.title = 'Society Registration';
+
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
@@ -72,6 +74,37 @@ export default function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
+
+  console.log(localStorage.getItem('token'));
+
+  let config = {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Token ${localStorage.getItem('token')}`
+    }
+  }
+
+  React.useEffect(() => {
+    axios.get(`http://192.168.0.104:8000/api/society/`, config)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        console.log(res.status);
+      });
+  });
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    let config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Token ${localStorage.getItem('token')}`
+      }
+    }
+
+    // post
+  }
 
   return (
     <React.Fragment>
@@ -112,6 +145,8 @@ export default function Checkout() {
                       variant="contained"
                       color="primary"
                       onClick={handleNext}
+                      // onClick={handleSubmit}
+                      // onChange={(event) => { setTenant(event.target.checked); addItem(); }}
                       className={classes.button}
                     >
                       {activeStep === steps.length - 1 ? 'Finish' : 'Next'}

@@ -43,6 +43,8 @@ export default function ForgetPassword() {
 	});
 	const [isVerified, setIsVerified] = React.useState(false);
 
+	document.title = 'Forget Password'
+
 	const handleChange = event => {
 		setData({ ...data, [event.target.name]: event.target.value })
 	};

@@ -38,6 +38,8 @@ const useStyles = makeStyles(theme => ({
 export default function ResetPassword() {
 	const classes = useStyles();
 
+	document.title = 'Reset Password'
+
 	return (
 		<Container component="main" maxWidth="xs">
 			<CssBaseline />

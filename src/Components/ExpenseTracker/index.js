@@ -50,6 +50,8 @@ export default function Tracker() {
 	const [selectType, setSelectType] = React.useState('Income');
 	const [value, setValue] = React.useState('');
 
+	document.title = 'Income & Expense Tracker';
+
 	const VIEWS = [
 		{
 			name: 'Income',

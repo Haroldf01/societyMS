@@ -47,6 +47,8 @@ export default function SignUp() {
   });
   const [isVerified, setIsVerified] = React.useState(false);
 
+  document.title = 'Sign Up'
+
   const handleChange = event => {
     setData({ ...data, [event.target.name]: event.target.value })
   };
