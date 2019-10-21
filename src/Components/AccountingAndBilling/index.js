@@ -7,11 +7,10 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { Typography, Modal, Grid, TextField } from '@material-ui/core/';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
 import BusinessIcon from '@material-ui/icons/Business'
 import Backdrop from '@material-ui/core/Backdrop';
 
-import BillingDetails from './AccountingAndBillingForm';
+import BillingDetails from './BillingForm_1';
 import Copyright from '../Copyright'
 
 
@@ -103,7 +102,7 @@ export default function CaptureBillingDetails() {
 		yearOpening: 0
 	});
 
-	document.title = 'Accounting & Billing'
+	document.title = 'Accounting & Billing';
 
 	const handleOpen = () => {
 		setOpen(true);
@@ -131,15 +130,12 @@ export default function CaptureBillingDetails() {
 			billHeadValue: dataModal.billHeadValue,
 			currentBalance: dataModal.currentBalance,
 			yearOpening: dataModal.yearOpening
-		})
-		handleClose()
+		});
+		handleClose();
 	}
 
-	return (
-		<React.Fragment>
-			<CssBaseline />
-
-			{/* ADD BILL HEAD MODAL START */}
+	function billHeadModal() {
+		return (
 			<Modal
 				className={classes.modal}
 				open={open}
@@ -216,25 +212,29 @@ export default function CaptureBillingDetails() {
 							className={classes.button}
 						>
 							Done
-            </Button>
+						</Button>
 					</div>
 				</Fade>
 			</Modal>
+		)
+	}
 
+	return (
+		<React.Fragment>
+			<CssBaseline />
+
+			{billHeadModal()}
 			<main className={classes.layout}>
 				<Paper className={classes.paper}>
-					<ListItemIcon >
-						<BusinessIcon />
-					</ListItemIcon>
 					<Typography variant="h5" align="center">
-						Accounting & Billing Info
+						<BusinessIcon /> Accounting &amp; Billing Info
 			</Typography>
 					<React.Fragment>
 						{activeStep === steps.length ? (
 							<React.Fragment>
 								<Typography variant="h5" gutterBottom>
 									Thank you! Your detials are captured.
-				  </Typography>
+								</Typography>
 							</React.Fragment>
 						) : (
 								<React.Fragment>

@@ -8,9 +8,9 @@ import BusinessIcon from '@material-ui/icons/Business';
 
 import { FormControlLabel, Checkbox } from '@material-ui/core';
 
-import MemberInfo from './MemberInfo';
-import MemberParking from './MemberParkings';
-import MemberTanent from './TanentForm';
+import MemberInfo from './MemberInfo_1';
+import MemberParking from './MemberParkings_2';
+import MemberTanent from './TanentForm_3';
 import Copyright from '../Copyright';
 
 const useStyles = makeStyles(theme => ({

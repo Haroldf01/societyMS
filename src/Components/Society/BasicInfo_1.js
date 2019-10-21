@@ -3,12 +3,10 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import axios from 'axios';
+import Button from '@material-ui/core/Button';
 
-
-export default function AddressForm() {
-
-  const [data, setData] = React.useState({
+export default function AddressForm({ state }) {
+  const [values, setValues] = React.useState({
     name: '',
     registration_no: '',
     address: '',
@@ -16,55 +14,14 @@ export default function AddressForm() {
     city: '',
     pincode: '',
     contact_no: '',
-    maintenance: '',
+    // maintenance: '',
     area_code: '',
-    landline_no: '',
+    landline_no: ''
   });
-  const [isVerified, setIsVerified] = React.useState(false);
 
   const handleChange = event => {
-    setData({ ...data, [event.target.name]: event.target.value })
+    setValues({ ...values, [event.target.name]: event.target.value })
   };
-
-  const handleSubmit = event => {
-    event.preventDefault();
-
-    const user = {
-      societyName: data.societyName,
-      registrationNo: data.registrationNo,
-      addressLine_1: data.addressLine_1,
-      state: data.state,
-      city: data.city,
-      zipcode: data.zipcode,
-      mobileNo: data.mobileNo,
-      areaCode: data.areaCode,
-      landlineNo: data.landlineNo
-    };
-
-    let config = {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Token ' + localStorage.getItem('token')
-      }
-    }
-
-    let token;
-
-    axios.post(`http://192.168.0.104:8000/api/society/`, user, config)
-      .then(res => {
-        token = JSON.stringify(res.data.token);
-        localStorage.setItem('token', token);
-        if (res.status === 200) {
-          setIsVerified(true);
-        }
-      });
-  };
-
-  if (isVerified) {
-    console.log('inside if verified === True');
-    // return <Redirect to={{ pathname: '/dashboard' }} />;
-  }
-
 
   return (
     <React.Fragment>
@@ -75,7 +32,7 @@ export default function AddressForm() {
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            name="societyName"
+            name="name"
             label="Society Name"
             fullWidth
             onChange={handleChange}
@@ -84,7 +41,7 @@ export default function AddressForm() {
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            name="RegistrationNo"
+            name="registration_no"
             label="Registration Number"
             fullWidth
             onChange={handleChange}
@@ -93,14 +50,20 @@ export default function AddressForm() {
         <Grid item xs={12}>
           <TextField
             required
-            name="address1"
+            name="address"
             label="Address line 1"
             fullWidth
             onChange={handleChange}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField required id="state" name="state" label="State" fullWidth />
+          <TextField
+            required
+            name="state"
+            label="State"
+            fullWidth
+            onChange={handleChange}
+          />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
@@ -114,7 +77,7 @@ export default function AddressForm() {
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            name="zip"
+            name="pincode"
             label="Zip / Postal code"
             fullWidth
             onChange={handleChange}
@@ -123,7 +86,7 @@ export default function AddressForm() {
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            name="mobileNo"
+            name="contact_no"
             label="Mobile Number"
             fullWidth
             onChange={handleChange}
@@ -132,7 +95,7 @@ export default function AddressForm() {
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            name="areaCode"
+            name="area_code"
             label="Area Code"
             fullWidth
             onChange={handleChange}
@@ -141,12 +104,16 @@ export default function AddressForm() {
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            name="landlineNo"
+            name="landline_no"
             label="Landline Number"
             fullWidth
             onChange={handleChange}
           />
         </Grid>
+
+        <Button onClick={handleSubmit} color='secondary'>
+          Test
+        </Button>
       </Grid>
     </React.Fragment>
   );

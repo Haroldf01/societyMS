@@ -4,11 +4,10 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Drawer, AppBar, Toolbar, List, Typography } from '@material-ui/core';
-import { Divider, IconButton, Badge, Container } from '@material-ui/core';
+import { Divider, IconButton, Container } from '@material-ui/core';
 import { Grid } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 
 import { mainListItems, secondaryListItems, thirdListItems, fourthItemList } from './listItems';
 
@@ -16,8 +15,7 @@ import { mainListItems, secondaryListItems, thirdListItems, fourthItemList } fro
 // import Deposits from './Deposits';
 // import Orders from './Orders';
 
-import Avatar from '../Avatar';
-import SocietyForm from '../Forms/RegisterSociety';
+import SocietyForm from '../Society';
 
 const drawerWidth = 240;
 

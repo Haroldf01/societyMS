@@ -91,7 +91,7 @@ function WingModal() {
 		<div>
 			<List component='nav' className={classes.root}>
 				{wingStructArray.map(wings =>
-					<React.Fragment>
+					<React.Fragment key={wings.wingName}>
 						<ListItem button>
 							<ListItemIcon>
 								<BusinessIcon />
@@ -119,11 +119,10 @@ function WingModal() {
 					<div className={classes.paper}>
 						<Typography variant="h6" gutterBottom>
 							Add Wing
-            </Typography>
+						</Typography>
 						<Grid item lg={8} md={8} sm={10} xs={10}>
 							<TextField
 								required
-								id="wingName"
 								name="wingName"
 								label="Wing Name"
 								fullWidth
@@ -134,7 +133,6 @@ function WingModal() {
 						<Grid item lg={8} md={8} sm={10} xs={10}>
 							<TextField
 								required
-								id="numOfFloors"
 								name="numOfFloors"
 								label="Num of Floors"
 								fullWidth
@@ -148,11 +146,10 @@ function WingModal() {
 							className={classes.button}
 						>
 							Done
-            </Button>
+						</Button>
 					</div>
 				</Fade>
 			</Modal>
-
 		</div>
 	);
 }

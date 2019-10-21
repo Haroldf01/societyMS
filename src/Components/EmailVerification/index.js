@@ -1,9 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 
 export default function EmailVerification() {
-    const url = window.location.href;
+    // const url = window.location.href;
     const path = window.location.pathname + '/';
     const pathSplit = path.split('/');
     let id = pathSplit[2];

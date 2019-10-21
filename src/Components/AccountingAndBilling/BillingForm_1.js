@@ -124,11 +124,13 @@ export default function AccountingAndBilling({ billheads }) {
         </Grid>
       </Grid>
 
-      <h1>BillHeads</h1>
+      <Typography variant="h5" color={'textSecondary'}>
+        Billheads
+			</Typography>
 
       <List component='nav' >
         {billheads.map(bills =>
-          <React.Fragment>
+          <React.Fragment key={bills.billHeadTitle}>
             <ListItem divider={true} button>
               <Grid container spacing={3}>
                 <Grid item lg={4} md={4} sm={12} xs={12}>

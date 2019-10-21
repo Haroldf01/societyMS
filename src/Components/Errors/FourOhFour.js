@@ -7,7 +7,7 @@ export default function FourOhFourError() {
     return (
         <React.Fragment>
             <div>
-                <img src={PageNotFound} />
+                <img src={PageNotFound} alt='Page Not Found' />
                 <p style={{ textAlign: "center" }}>
                     <Link to="/">Go to Home </Link>
                 </p>

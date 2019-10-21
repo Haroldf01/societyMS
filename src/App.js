@@ -3,9 +3,9 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SignIn from './Components/SignIn'
 import SingUp from './Components/SignUp'
-import RegisterSociety from './Components/Forms/RegisterSociety';
+import RegisterSociety from './Components/Society';
 import Dashboard from './Components/Dashboard/Dashboard';
-import BillingDetails from './Components/Forms/CaptureBillingDetails';
+import BillingDetails from './Components/AccountingAndBilling';
 import Members from './Components/Member';
 import ForgetPassword from './Components/ForgetPassword';
 import ResetPassword from './Components/ResetPassword';
