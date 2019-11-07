@@ -1,40 +1,15 @@
 import React from 'react';
 
-import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
 import { Avatar, Button, TextField } from '@material-ui/core';
 import { Box, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-
 import axios from 'axios';
 
+import useStyles from './styles';
 import Copyright from '../Copyright';
 
-const useStyles = makeStyles(theme => ({
-	'@global': {
-		body: {
-			backgroundColor: theme.palette.common.white,
-		},
-	},
-	paper: {
-		marginTop: theme.spacing(8),
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center',
-	},
-	avatar: {
-		margin: theme.spacing(1),
-		backgroundColor: theme.palette.secondary.main,
-	},
-	form: {
-		width: '100%',
-		marginTop: theme.spacing(1),
-	},
-	submit: {
-		margin: theme.spacing(3, 0, 2),
-	},
-}));
+
 
 export default function ForgetPassword() {
 	const classes = useStyles();
@@ -74,7 +49,7 @@ export default function ForgetPassword() {
 	};
 
 	if (isVerified) {
-	  return <Typography>Reset Password link sent on your email</Typography>;
+		return <Typography>Reset Password link sent on your email</Typography>;
 	}
 
 	return (
@@ -86,7 +61,7 @@ export default function ForgetPassword() {
 				</Avatar>
 				<Typography variant="h5" align={'center'}>
 					Forget Password
-        </Typography>
+				</Typography>
 				<form className={classes.form} noValidate>
 					<TextField
 						variant="outlined"
