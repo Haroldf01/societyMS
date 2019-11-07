@@ -1,12 +1,75 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
+import MaterialTable from 'material-table';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Paper, Grid } from '@material-ui/core';
-import { Typography } from '@material-ui/core';
+import { Paper, Grid, Typography } from '@material-ui/core';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import BusinessIcon from '@material-ui/icons/Business';
 
 import useStyles from './styles';
+
+
+const tableIcons = {
+	Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
+	Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+	Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
+	FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
+	LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
+	NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+	PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
+	ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+	Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+	SortArrow: forwardRef((props, ref) => <ArrowUpward {...props} ref={ref} />),
+};
+
+function IncomeExpenseTable() {
+	const [state, setState] = React.useState({
+		columns: [
+			{
+				title: 'Head',
+				field: 'head',
+				headerStyle: {
+					width: 50,
+					maxWidth: 100
+				}
+			},
+			{ title: 'Date', field: 'date' },
+			{ title: 'Method', field: 'method', lookup: { 0: 'Cash', 1: 'Cheque' }, },
+			{ title: 'Participant', field: 'participant' },
+			{ title: 'Status', field: 'status' },
+			{ title: 'Amount', field: 'amount' },
+		],
+		data: [
+			{ head: 'Income', date: '22/10/19', method: '0', participant: 'CHMS', status: 'Done', amount: 12345 },
+		],
+	});
+	
+	return (
+		<MaterialTable
+			icons={tableIcons}
+			// title=''
+			columns={state.columns}
+			options={{
+				showTitle: false
+			}}
+			components={{
+				Container: React.Fragment
+			}}
+			data={state.data}
+			editable={{
+				onRowUpdate: (newData, oldData) =>
+					new Promise(resolve => {
+						setTimeout(() => {
+							resolve();
+							const data = [...state.data];
+							data[data.indexOf(oldData)] = newData;
+							setState({ ...state, data });
+						}, 600);
+					}),
+			}}
+		/>
+	);
+}
 
 
 export default function Tracker() {
@@ -27,7 +90,7 @@ export default function Tracker() {
 	]
 
 	const handleChange = (newIndex) => {
-		setValue( view.value[newIndex] );
+		setValue(view.value[newIndex]);
 	}
 
 	const view = VIEWS.filter(({ name }) => name === selectType)[0]
@@ -55,12 +118,12 @@ export default function Tracker() {
 						</Grid>
 
 						{/* Review: https://stackoverflow.com/questions/35379140/reactjs-materialui-selectfield-event-handling */}
-						
+
 						<Grid item lg={4} md={4} sm={6} xs={6}>
 							<FormControl className={classes.formControl}>
 								<InputLabel htmlFor='head'>Head</InputLabel>
 								<Select value={value} onChange={(e, newIndex) => handleChange(newIndex)} >
-									{view.value.map(function(v, index) {
+									{view.value.map(function (v, index) {
 										return <MenuItem key={index} value={v}>{v}</MenuItem>
 									})}
 								</Select>
@@ -80,11 +143,14 @@ export default function Tracker() {
 				</Paper>
 
 				<Paper className={classes.paper}>
-
+					<React.Fragment>
+						<Typography variant="h6" color={'textSecondary'}>
+							Incomes &amp; Expenses
+						</Typography>
+						<IncomeExpenseTable />
+					</React.Fragment>
 				</Paper>
 			</main>
-
-
 		</React.Fragment>
 	);
 }

@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Drawer, AppBar, Toolbar, List, Typography } from '@material-ui/core';
 import { Divider, IconButton, Container } from '@material-ui/core';
-import { Grid } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
@@ -107,7 +107,7 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>
@@ -162,11 +162,9 @@ export default function Dashboard() {
         <Container maxWidth="lg" className={classes.container}>
           <SocietyForm />
           <Grid container spacing={3}>
-            {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
-              {/* <Paper className={fixedHeightPaper}>
-                <Chart />
-              </Paper> */}
+              <Paper className={fixedHeightPaper}>
+              </Paper>
             </Grid>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
