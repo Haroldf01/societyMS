@@ -91,7 +91,6 @@ export default function AddressForm({ state }) {
             onChange={handleChange}
           />
         </Grid>
-<<<<<<< HEAD
         <Grid item xs={12} sm={6}>
           <TextField
             required
@@ -110,44 +109,6 @@ export default function AddressForm({ state }) {
             onChange={handleChange}
           />
         </Grid>
-=======
-
-        <Grid container spacing={3}>
-          <Grid item lg={4} md={4} sm={12} xs={12}>
-            <TextField
-              required
-              name="area_code"
-              label="Area Code"
-              fullWidth
-              onChange={handleChange}
-            />
-          </Grid>
-
-          <Grid item lg={4} md={4} sm={6} xs={6}>
-            <TextField
-              required
-              name="landline_no"
-              label="Landline Number"
-              fullWidth
-              onChange={handleChange}
-            />
-          </Grid>
-
-          <Grid item lg={4} md={4} sm={6} xs={6}>
-            <TextField
-              required
-              name="num_of_flats"
-              label="Number of Flats"
-              fullWidth
-              onChange={handleChange}
-            />
-          </Grid>
-        </Grid>
-        {/* 
-        <Button onClick={handleSubmit} color='secondary'>
-          Test
-        </Button> */}
->>>>>>> 5ba0211577e0453133cf8c2567554f1e10b2c114
       </Grid>
     </React.Fragment>
   );
