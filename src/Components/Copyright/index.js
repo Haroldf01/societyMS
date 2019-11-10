@@ -8,7 +8,7 @@ export default function Copyright() {
 			{'Copyright © '}
 			<Link color="inherit" href="http://arsalaan.net/">
 				Arsalaan
-      </Link>{' '}
+			</Link>{' '}
 			{new Date().getFullYear()}
 			{'.'}
 		</Typography>
