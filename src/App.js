@@ -12,6 +12,7 @@ import ResetPassword from './Components/ResetPassword';
 import Tracker from './Components/ExpenseTracker';
 import EmailVerification from './Components/EmailVerification';
 import FourOhFourError from './Components/Errors/FourOhFour';
+import GeneralLedger from "./Components/GeneralLedger";
 
 // import TableDemo from './Components/Member/TableDemo';
 // import PersonList from './Components/Demo/APIGetRequest';
@@ -33,6 +34,7 @@ function App() {
 					<Route path={'/resetpwd'} component={ResetPassword} />
 					<Route path={'/expense'} component={Tracker} />
 					<Route path={'/emailverify/:u/:cd'} component={EmailVerification} />
+					<Route path={'/gledger'} component={GeneralLedger} />
 					<Route component={FourOhFourError} />
 
 					{/* <Route path={'/table'} component={TableDemo} />

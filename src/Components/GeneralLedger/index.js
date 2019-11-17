@@ -1,6 +1,9 @@
 import React, { forwardRef } from 'react';
-import { Typography } from '@material-ui/core';
+
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { Paper, Typography } from '@material-ui/core';
 import MaterialTable from 'material-table';
+import useStyles from './styles';
 
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';
@@ -38,13 +41,11 @@ const tableIcons = {
 	ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
-function TableDemo() {
+function GeneralLedgerTable() {
 	const [state, setState] = React.useState({
 		columns: [
 			{
-				title: 'Vehicle ID',
-				field: 'tableData.id',
-				type: 'numeric',
+				title: 'Date',
 				editable: 'never',
 				headerStyle: {
 					width:50,
@@ -52,26 +53,24 @@ function TableDemo() {
 				}
 			},
 			{
-				title: 'Vehicle Type',
-				field: 'vehicleType',
-				lookup: { 0: 'Two Wheeler', 1: 'Four Wheeler' }
+				title: 'Participants',
+				field: 'participants',
 			},
-			{ title: 'Registration No.', field: 'registrationNo' },
+			{ title: 'Credit', field: 'credit' },
+			{ title: 'Debit', field: 'debit' },
 			{
-				title: 'Parking Type',
-				field: 'parkingType',
-				lookup: { 0: 'Society Owned', 1: 'Self Owned' },
+				title: 'Balance',
+				field: 'balance',
 			},
 		],
 		data: [
-			{ vehicleID: '1', registrationNo: 'MH-02-BW-6471', vehicleType: 0, parkingType: 1 },
+			// SECTION Here i can do an api call for populating data
 		],
 	});
 
 	return (
 		<MaterialTable
 			icons={tableIcons}
-			// title='Add Parking'
 			columns={state.columns}
 			options={{
 				search: false,
@@ -83,45 +82,61 @@ function TableDemo() {
 			}}
 			data={state.data}
 			editable={{
-				onRowAdd: newData =>
-					new Promise(resolve => {
-						setTimeout(() => {
-							resolve();
-							const data = [...state.data];
-							data.push(newData);
-							setState({ ...state, data });
-						}, 600);
-					}),
-				onRowUpdate: (newData, oldData) =>
-					new Promise(resolve => {
-						setTimeout(() => {
-							resolve();
-							const data = [...state.data];
-							data[data.indexOf(oldData)] = newData;
-							setState({ ...state, data });
-						}, 600);
-					}),
-				onRowDelete: oldData =>
-					new Promise(resolve => {
-						setTimeout(() => {
-							resolve();
-							const data = [...state.data];
-							data.splice(data.indexOf(oldData), 1);
-							setState({ ...state, data });
-						}, 600);
-					}),
+				// NOTE If needed adding a row functionlity
+
+				// onRowAdd: newData =>
+				// 	new Promise(resolve => {
+				// 		setTimeout(() => {
+				// 			resolve();
+				// 			const data = [...state.data];
+				// 			data.push(newData);
+				// 			setState({ ...state, data });
+				// 		}, 600);
+				// 	}),
+
+					// NOTE If needed action like edit or delete
+
+				// onRowUpdate: (newData, oldData) =>
+				// 	new Promise(resolve => {
+				// 		setTimeout(() => {
+				// 			resolve();
+				// 			const data = [...state.data];
+				// 			data[data.indexOf(oldData)] = newData;
+				// 			setState({ ...state, data });
+				// 		}, 600);
+				// 	}),
+				// onRowDelete: oldData =>
+				// 	new Promise(resolve => {
+				// 		setTimeout(() => {
+				// 			resolve();
+				// 			const data = [...state.data];
+				// 			data.splice(data.indexOf(oldData), 1);
+				// 			setState({ ...state, data });
+				// 		}, 600);
+				// 	}),
 			}}
 		/>
 	);
 }
 
-export default function MemberParking() {
+export default function Tracker() {
+	const classes = useStyles();
+
+	document.title = 'General Ledger';
+
 	return (
 		<React.Fragment>
-			<Typography variant="h6" color={'textSecondary'}>
-				Add Parking
-			</Typography>
-			<TableDemo />
+			<CssBaseline />
+
+			<main className={classes.layout}>
+				<Paper className={classes.paper}>
+					<Typography variant="h6" color={'textSecondary'} >
+						General Ledger
+					</Typography>
+					<GeneralLedgerTable />
+				</Paper>
+			</main>
+
 		</React.Fragment>
 	);
 }

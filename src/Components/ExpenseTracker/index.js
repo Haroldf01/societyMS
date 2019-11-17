@@ -80,7 +80,7 @@ export default function Tracker() {
 				</Paper>
 
 				<Paper className={classes.paper}>
-
+					
 				</Paper>
 			</main>
 
