@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import SignIn from './Components/SignIn'
-import SingUp from './Components/SignUp'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import SignIn from './Components/SignIn';
+import SingUp from './Components/SignUp';
 import RegisterSociety from './Components/Society';
 import Dashboard from './Components/Dashboard/Dashboard';
 import BillingDetails from './Components/AccountingAndBilling';
@@ -13,6 +13,7 @@ import Tracker from './Components/ExpenseTracker';
 import EmailVerification from './Components/EmailVerification';
 import FourOhFourError from './Components/Errors/FourOhFour';
 import GeneralLedger from "./Components/GeneralLedger";
+import LandingPage from './Components/LandingPage';
 
 // import TableDemo from './Components/Member/TableDemo';
 // import PersonList from './Components/Demo/APIGetRequest';
@@ -23,7 +24,7 @@ function App() {
 		<Router>
 			<div className="App">
 				<Switch>
-					<Route path='/' exact component={Home} />
+					<Route path='/' exact component={LandingPage} />
 					<Route path='/login' component={SignIn} />
 					<Route path='/signup' component={SingUp} />
 					<Route path='/society' component={RegisterSociety} />
@@ -45,11 +46,5 @@ function App() {
 		</Router>
 	);
 }
-
-const Home = () => (
-	<div>
-		<h1>Home</h1>
-	</div>
-);
 
 export default App;

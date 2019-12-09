@@ -1,0 +1,47 @@
+Package Report
+
+-----------------------------------------------------------------------------
+Document:
+Name: KV.ai
+Color Mode: RGB color
+Color Profile: sRGB IEC61966-2.1
+Ruler Units: pixels
+Artboard Dimensions: 1366 px x 768 px
+Show Images in Outline Mode: OFF
+Highlight Substituted Fonts: OFF
+Highlight Substituted Glyphs: OFF
+Preserve Text Editability
+Simulate Colored Paper: OFF
+
+-----------------------------------------------------------------------------
+Spot Color Objects:
+
+-----------------------------------------------------------------------------
+Missing Fonts:NONE
+
+-----------------------------------------------------------------------------
+Protected Fonts that were not packaged:NONE
+
+-----------------------------------------------------------------------------
+Fonts:
+EA Font v1.5 by Ghettoshark (TrueType)
+Lato Heavy (TrueType)
+Indian Rupee Font (TrueType)
+Myriad Pro (OTF)
+Myriad Variable Concept Regular (OTF)
+Roboto Medium (TrueType)
+Open Sans Semibold (OTF)
+Roboto Light (TrueType)
+Ubuntu Bold (OTF)
+
+-----------------------------------------------------------------------------
+Embedded Fonts:
+NONE
+
+-----------------------------------------------------------------------------
+Missing Links:
+NONE
+
+-----------------------------------------------------------------------------
+Linked Images:
+NONE
